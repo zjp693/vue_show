@@ -8,13 +8,14 @@
       <a-row>
         <a-col :span="6" :offset="10">
           <!-- 表单 -->
-          <a-form :rules="rules" :model="form">
+          <a-form ref="ruleForm" :rules="rules" :model="form">
             <!-- 标题 -->
             <a-row class="login-title">
               <a-col :span="24">
-                <h1><img src="../assets/logo.png" alt="" /> Ant Design</h1>
-                <span>Ant Design 是西湖区最具影响力的 Web 设计规范</span>
-
+                <div class="title">
+                  <h1><img src="../assets/logo.png" alt="" /> Ant Design</h1>
+                  <span>Ant Design 是西湖区最具影响力的 Web 设计规范</span>
+                </div>
                 <!-- 登陆方式  -->
                 <a-row>
                   <a-col :span="24">
@@ -37,6 +38,7 @@
                             type="password"
                             size="large"
                             placeholder="请输入密码"
+                            v-model:value="form.password"
                           >
                             <template #prefix
                               ><LockOutlined style="color: rgba(0, 0, 0, 0.25)"
@@ -90,7 +92,9 @@
             <a-row style="margin: 24px 0">
               <a-col :span="24">
                 <a-form-item :wrapperCol="{ span: 24 }">
-                  <a-button block size="large" type="primary">确定 </a-button>
+                  <a-button block size="large" type="primary" @click="onSubmit"
+                    >确定
+                  </a-button>
                 </a-form-item>
               </a-col>
             </a-row>
@@ -128,6 +132,7 @@ import {
   TaobaoCircleOutlined,
   WeiboCircleOutlined,
 } from "@ant-design/icons-vue";
+import { message } from "ant-design-vue";
 export default {
   data() {
     return {
@@ -169,6 +174,7 @@ export default {
       },
     };
   },
+  //引入小图标
   components: {
     UserOutlined,
     LockOutlined,
@@ -177,6 +183,45 @@ export default {
     AlipayCircleOutlined,
     TaobaoCircleOutlined,
     WeiboCircleOutlined,
+  },
+  methods: {
+    onSubmit() {
+      this.$refs.ruleForm
+        .validate()
+        .then(() => {
+          // console.log("values", this.form);
+          // console.log(this);
+          let params = {
+            username: this.form.username,
+            password: this.form.password,
+          };
+          this.$axios
+            .post("/login", params)
+            .then(
+              function (response) {
+                // console.log(response.data);
+                let { meta } = response.data;
+                // console.log(meta);
+
+                // 判断是否登陆成功
+                if (meta.status == 400) {
+                  return message.error(meta.msg);
+                }
+                if (meta.status == 200) {
+                  message.success(meta.msg);
+                  // window.sessionStorage.setItem("token", data.token);
+                  this.$router.push("/home");
+                }
+              }.bind(this)
+            )
+            .catch(function (error) {
+              console.log(error);
+            });
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+    },
   },
 };
 </script>
@@ -195,8 +240,8 @@ export default {
   width: 365px;
   height: 500px;
 }
-.login-title {
-  /* text-align: center; */
+.login-title .title {
+  text-align: center;
 }
 .ant-form h1 img {
   width: 44px;
