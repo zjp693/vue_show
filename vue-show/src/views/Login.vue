@@ -19,13 +19,13 @@
                 <!-- 登陆方式  -->
                 <a-row>
                   <a-col :span="24">
-                    <a-tabs>
+                    <a-tabs :tabBarStyle="{ textAlign: 'center' }">
                       <!--  手机号码登陆-->
-                      <a-tab-pane key="1" tab="手机号码登陆">
+                      <a-tab-pane key="1" tab="账号密码登陆">
                         <a-form-item :wrapperCol="{ span: 24 }" name="username">
                           <a-input
                             size="large"
-                            placeholder="请输入用户名"
+                            placeholder="请输入账号"
                             v-model:value="form.username"
                           >
                             <template #prefix
@@ -47,7 +47,7 @@
                         </a-form-item>
                       </a-tab-pane>
                       <!-- 账号密码登陆 -->
-                      <a-tab-pane key="2" tab="账号密码登陆" force-render>
+                      <a-tab-pane key="2" tab=" 手机号码登陆" force-render>
                         <a-form-item :wrapperCol="{ span: 24 }">
                           <a-input size="large" placeholder="请输入手机号">
                             <template #prefix
@@ -197,23 +197,23 @@ export default {
           };
           this.$axios
             .post("/login", params)
-            .then(
-              function (response) {
-                // console.log(response.data);
-                let { meta } = response.data;
-                // console.log(meta);
-
-                // 判断是否登陆成功
-                if (meta.status == 400) {
-                  return message.error(meta.msg);
-                }
-                if (meta.status == 200) {
-                  message.success(meta.msg);
-                  // window.sessionStorage.setItem("token", data.token);
-                  this.$router.push("/home");
-                }
-              }.bind(this)
-            )
+            .then((response) => {
+              // console.log(response.data);
+              let { meta, data } = response.data;
+              // console.log(meta);
+              // console.log(data);
+              // 判断是否登陆成功
+              if (meta.status == 400) {
+                return message.error(meta.msg);
+              }
+              if (meta.status == 200) {
+                // 提示登陆成功
+                message.success(meta.msg);
+                // 把后端的返回的token存储sessionStorage中
+                window.sessionStorage.setItem("token", data.token);
+                this.$router.push("/home");
+              }
+            })
             .catch(function (error) {
               console.log(error);
             });
@@ -226,7 +226,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .ant-layout {
   height: 100%;
   background-image: url(../assets/image/TVYTbAXWheQpRcWDaDMu.svg);
