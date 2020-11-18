@@ -21,9 +21,9 @@ const routes = [
         component: () => import("../components/Weclome")
       },
       {
-        name: "userlist",
-        path: "/userlist",
-        component: () => import("../components/Userlist")
+        name: "users",
+        path: "/users",
+        component: () => import("../components/users")
       }
     ]
   }

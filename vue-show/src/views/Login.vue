@@ -132,6 +132,10 @@ import {
   TaobaoCircleOutlined,
   WeiboCircleOutlined,
 } from "@ant-design/icons-vue";
+// 引入http方法
+import { httpPost } from "@/utils/http";
+// 引入接口
+import { user } from "@/api";
 import { message } from "ant-design-vue";
 export default {
   data() {
@@ -189,15 +193,19 @@ export default {
       this.$refs.ruleForm
         .validate()
         .then(() => {
+          // 2.引入请求地址
+          let url = user.LoginUser;
           // console.log("values", this.form);
           // console.log(this);
+
           let params = {
             username: this.form.username,
             password: this.form.password,
           };
-          this.$axios
-            .post("/login", params)
+
+          httpPost(url, params)
             .then((response) => {
+              // .post("/login", params)
               // console.log(response.data);
               let { meta, data } = response.data;
               // console.log(meta);
