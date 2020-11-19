@@ -18,7 +18,63 @@
               </a-col>
 
               <a-col :span="8">
-                <a-button type="primary" size="large"> 添加用户 </a-button>
+                <a-button type="primary" size="large" @click="showModal">
+                  添加用户
+                </a-button>
+                <a-modal
+                  v-model:visible="visible"
+                  :confirm-loading="confirmLoading"
+                  title="添加用户"
+                  cancelText="取消"
+                  okText="确定"
+                >
+                  <a-row>
+                    <a-col :span="24">
+                      <a-form>
+                        <a-form-item
+                          required
+                          has-feedback
+                          label="用户名"
+                          name="name"
+                          :labelCol="{ span: 3 }"
+                          :wrapperCol="{ span: 20 }"
+                        >
+                          <a-input type="name" />
+                        </a-form-item>
+                        <a-form-item
+                          required
+                          has-feedback
+                          label="密码"
+                          name="password"
+                          :labelCol="{ span: 3 }"
+                          :wrapperCol="{ span: 20 }"
+                        >
+                          <a-input-password type="password" />
+                        </a-form-item>
+                        <a-form-item
+                          required
+                          has-feedback
+                          label="邮箱"
+                          name="email"
+                          :labelCol="{ span: 3 }"
+                          :wrapperCol="{ span: 20 }"
+                        >
+                          <a-input type="email" />
+                        </a-form-item>
+                        <a-form-item
+                          required
+                          has-feedback
+                          label="手机"
+                          name="phone"
+                          :labelCol="{ span: 3 }"
+                          :wrapperCol="{ span: 20 }"
+                        >
+                          <a-input type="phone" />
+                        </a-form-item>
+                      </a-form>
+                    </a-col>
+                  </a-row>
+                </a-modal>
               </a-col>
             </a-row>
           </a-col>
@@ -26,7 +82,12 @@
       </a-form>
       <!-- 添加用户 end-->
       <!-- 表格 start -->
-      <a-table :columns="tablecolumns" :data-source="tableData" bordered>
+      <a-table
+        :columns="tablecolumns"
+        :data-source="tableData"
+        bordered
+        :pagination="false"
+      >
         <template #mg_state="{ text }">
           <a-switch :checked="text.mg_state" />
         </template>
@@ -43,8 +104,21 @@
           </a-button>
         </template>
       </a-table>
-
       <!-- 表格 end -->
+      <!-- 分页 start -->
+      <a-pagination
+        v-model:current="current"
+        :total="total"
+        class="page"
+        :show-total="(total) => `共 ${total} 条`"
+        show-size-changer
+        @showSizeChange="onShowSizeChange"
+        :page-size-options="pageSizeOptions"
+        :defaultPageSize="2"
+        @change="onChange"
+        show-quick-jumper
+      />
+      <!-- 分页 end -->
     </div>
   </div>
 </template>
@@ -67,7 +141,7 @@ export default {
   },
   data() {
     return {
-      // 获取的数据
+      // 表格列配置
       tableData: [],
       tablecolumns: [
         { title: "#", dataIndex: "index", key: "index" },
@@ -78,24 +152,38 @@ export default {
         { title: "状态", key: "mg_state", slots: { customRender: "mg_state" } },
         { title: "操作", key: "age", slots: { customRender: "operation" } },
       ],
+      // 分页
+      current: 1,
+      total: 2,
+      // 指定每页可以显示多少条
+      pageSizeOptions: ["2", "5", "8", "10"],
+      visible: false,
+
+      confirmLoading: false,
     };
   },
   created() {
     this.getUsers();
   },
   methods: {
-    getUsers() {
+    getUsers(pagenum = 1, pagesize = 2) {
       httpGet(user.GetUsers, {
-        pagenum: 1,
-        pagesize: 2,
+        pagenum: pagenum,
+        pagesize: pagesize,
       })
         .then((response) => {
           console.log(response);
           let { meta, data } = response;
 
           if (meta.status == 200) {
+            // 设置表格数据
             this.tableData = data.users;
+            // 设置当前页码
+            this.current = data.pagenum;
+            // 设置数据总数
+            this.total = data.total;
             // console.log(this.tableData);
+            // 给每一条数据添加序号（index）属性
             this.tableData.forEach((element, index) => {
               element.index = index + 1;
             });
@@ -105,14 +193,25 @@ export default {
           console.log(err);
         });
     },
+    onShowSizeChange(current, pageSize) {
+      // console.log(current, pageSize);
+      this.getUsers(current, pageSize);
+    },
+    // 页码改变的回调，参数是改变后的页码以及条数
+    onChange(page, pageSize) {
+      this.getUsers(page, pageSize);
+      console.log(1);
+    },
+    // 点击显示拟态框
+    showModal() {
+      this.visible = true;
+    },
   },
 };
 </script>
 
 <style>
-.l {
-  margin: 0 10px;
-  background-color: #e8a23b;
-  color: #fff;
+.page {
+  margin-top: 25px;
 }
 </style>
