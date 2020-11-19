@@ -206,8 +206,8 @@ export default {
           httpPost(url, params)
             .then((response) => {
               // .post("/login", params)
-              // console.log(response.data);
-              let { meta, data } = response.data;
+              // console.log(response);
+              let { meta, data } = response;
               // console.log(meta);
               // console.log(data);
               // 判断是否登陆成功

@@ -50,7 +50,7 @@
           <a-menu-item :key="subitem.id" v-for="subitem in item.children">
             <WindowsOutlined />
             <span
-              ><router-link :to="subitem.path"
+              ><router-link :to="subitem.path" class="span"
                 ><span>{{ subitem.authName }}</span></router-link
               ></span
             >
@@ -202,7 +202,10 @@ export default {
   float: right;
   margin: 16px 24px;
 }
-.ant-layout span {
+.ant-layout .span {
+  color: #a6adb4;
+}
+.ant-layout .span :hover {
   color: #ffffff;
 }
 </style>
