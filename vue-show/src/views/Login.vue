@@ -104,8 +104,8 @@
                 <a-form-item :wrapperCol="{ span: 24 }">
                   <span
                     >其他登陆方式
-                    <AlipayCircleOutlined class="item-ico" />
-                    <TaobaoCircleOutlined class="item-ico" />
+                    <AlipayCircleOutlined class="item-ico"/>
+                    <TaobaoCircleOutlined class="item-ico"/>
                     <WeiboCircleOutlined class="item-ico"
                   /></span>
                   <router-link to="#" style="float: right"
@@ -130,7 +130,7 @@ import {
   MailOutlined,
   AlipayCircleOutlined,
   TaobaoCircleOutlined,
-  WeiboCircleOutlined,
+  WeiboCircleOutlined
 } from "@ant-design/icons-vue";
 // 引入http方法
 import { httpPost } from "@/utils/http";
@@ -141,8 +141,8 @@ export default {
   data() {
     return {
       form: {
-        username: "",
-        password: "",
+        username: "admin",
+        password: "123456"
       },
       rules: {
         username: [
@@ -151,14 +151,14 @@ export default {
             // trigger什么时候触发
             required: true,
             message: "请输入用户名",
-            trigger: "blur",
+            trigger: "blur"
           },
           {
             min: 4,
             max: 16,
             message: "长度在4-16个字符之间",
-            trigger: "blur",
-          },
+            trigger: "blur"
+          }
         ],
         password: [
           {
@@ -166,16 +166,16 @@ export default {
             // trigger什么时候触发
             required: true,
             message: "请输入密码",
-            trigger: "blur",
+            trigger: "blur"
           },
           {
             min: 4,
             max: 16,
             message: "长度在4-16个字符之间",
-            trigger: "blur",
-          },
-        ],
-      },
+            trigger: "blur"
+          }
+        ]
+      }
     };
   },
   //引入小图标
@@ -186,7 +186,7 @@ export default {
     MailOutlined,
     AlipayCircleOutlined,
     TaobaoCircleOutlined,
-    WeiboCircleOutlined,
+    WeiboCircleOutlined
   },
   methods: {
     onSubmit() {
@@ -200,11 +200,11 @@ export default {
 
           let params = {
             username: this.form.username,
-            password: this.form.password,
+            password: this.form.password
           };
 
           httpPost(url, params)
-            .then((response) => {
+            .then(response => {
               // .post("/login", params)
               // console.log(response);
               let { meta, data } = response;
@@ -222,15 +222,15 @@ export default {
                 this.$router.push("/home");
               }
             })
-            .catch(function (error) {
+            .catch(function(error) {
               console.log(error);
             });
         })
-        .catch((error) => {
+        .catch(error => {
           console.log("error", error);
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

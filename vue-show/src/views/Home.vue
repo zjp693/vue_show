@@ -95,7 +95,7 @@ import {
   CodeSandboxOutlined,
   ShoppingOutlined,
   ContainerOutlined,
-  AreaChartOutlined,
+  AreaChartOutlined
 } from "@ant-design/icons-vue";
 
 // 引入请求方式httpGet
@@ -115,7 +115,7 @@ export default {
     CodeSandboxOutlined,
     ShoppingOutlined,
     ContainerOutlined,
-    AreaChartOutlined,
+    AreaChartOutlined
   },
   data() {
     return {
@@ -126,7 +126,7 @@ export default {
       // 默认打开的哪一项
       openKeys: [],
       // 所有项
-      rootSubmenuKeys: [],
+      rootSubmenuKeys: []
     };
   },
   methods: {
@@ -137,35 +137,35 @@ export default {
     // 获取数据
     getMenuList() {
       httpGet(rights.AsideMenus)
-        .then((response) => {
+        .then(response => {
           // console.log(response);
           let { data, meta } = response;
           // 判断数据是否获取成功
           if (meta.status == 200) {
             this.menulist = data;
             // 保存一级菜单的id
-            this.menulist.forEach((item) => {
+            this.menulist.forEach(item => {
               this.rootSubmenuKeys.push(item.id);
             });
             // console.log(this.rootSubmenuKeys);
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
     // 点击当前 关闭其他菜单
     onOpenChange(openKeys) {
       const latestOpenKey = openKeys.find(
-        (key) => this.openKeys.indexOf(key) === -1
+        key => this.openKeys.indexOf(key) === -1
       );
       if (this.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
         this.openKeys = openKeys;
       } else {
         this.openKeys = latestOpenKey ? [latestOpenKey] : [];
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped>

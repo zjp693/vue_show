@@ -18,28 +18,43 @@
               </a-col>
 
               <a-col :span="8">
-                <a-button type="primary" size="large" @click="showModal">
+                <a-button
+                  type="primary"
+                  size="large"
+                  @click="showModal"
+                  ref="addFormRef"
+                >
                   添加用户
                 </a-button>
+                <!-- 添加用户模态框 -->
                 <a-modal
-                  v-model:visible="visible"
+                  v-model:visible="addvisible"
                   :confirm-loading="confirmLoading"
                   title="添加用户"
                   cancelText="取消"
                   okText="确定"
+                  @ok="hanleAddUsers"
+                  @cancel="cancelAddUser"
                 >
                   <a-row>
                     <a-col :span="24">
-                      <a-form>
+                      <a-form
+                        :model="addruleForm"
+                        :rules="addrules"
+                        ref="addFormRef"
+                      >
                         <a-form-item
-                          required
                           has-feedback
                           label="用户名"
-                          name="name"
+                          required
+                          name="username"
                           :labelCol="{ span: 3 }"
                           :wrapperCol="{ span: 20 }"
                         >
-                          <a-input type="name" />
+                          <a-input
+                            type="text"
+                            v-model:value="addruleForm.username"
+                          />
                         </a-form-item>
                         <a-form-item
                           required
@@ -49,7 +64,10 @@
                           :labelCol="{ span: 3 }"
                           :wrapperCol="{ span: 20 }"
                         >
-                          <a-input-password type="password" />
+                          <a-input-password
+                            type="password"
+                            v-model:value="addruleForm.password"
+                          />
                         </a-form-item>
                         <a-form-item
                           required
@@ -59,17 +77,84 @@
                           :labelCol="{ span: 3 }"
                           :wrapperCol="{ span: 20 }"
                         >
-                          <a-input type="email" />
+                          <a-input
+                            type="email"
+                            v-model:value="addruleForm.email"
+                          />
                         </a-form-item>
                         <a-form-item
                           required
                           has-feedback
                           label="手机"
-                          name="phone"
+                          name="mobile"
                           :labelCol="{ span: 3 }"
                           :wrapperCol="{ span: 20 }"
                         >
-                          <a-input type="phone" />
+                          <a-input
+                            type="phone"
+                            v-model:value="addruleForm.mobile"
+                          />
+                        </a-form-item>
+                      </a-form>
+                    </a-col>
+                  </a-row>
+                </a-modal>
+                <!-- 编辑用户模态框 -->
+                <a-modal
+                  v-model:visible="editvisible"
+                  title="编辑用户"
+                  cancelText="取消"
+                  okText="确定"
+                  @ok="hanleEditUsers"
+                  @cancel="cancelEditUser"
+                >
+                  <a-row>
+                    <a-col :span="24">
+                      <a-form
+                        :model="EditruleForm"
+                        :rules="Editrules"
+                        ref="EditFormRef"
+                      >
+                        <a-form-item
+                          has-feedback
+                          label="用户名"
+                          required
+                          name="username"
+                          :labelCol="{ span: 3 }"
+                          :wrapperCol="{ span: 20 }"
+                        >
+                          <a-input
+                            disabled
+                            type="text"
+                            v-model:value="EditruleForm.username"
+                          />
+                        </a-form-item>
+
+                        <a-form-item
+                          required
+                          has-feedback
+                          label="邮箱"
+                          name="email"
+                          :labelCol="{ span: 3 }"
+                          :wrapperCol="{ span: 20 }"
+                        >
+                          <a-input
+                            type="email"
+                            v-model:value="EditruleForm.email"
+                          />
+                        </a-form-item>
+                        <a-form-item
+                          required
+                          has-feedback
+                          label="手机"
+                          name="mobile"
+                          :labelCol="{ span: 3 }"
+                          :wrapperCol="{ span: 20 }"
+                        >
+                          <a-input
+                            type="phone"
+                            v-model:value="EditruleForm.mobile"
+                          />
                         </a-form-item>
                       </a-form>
                     </a-col>
@@ -92,13 +177,21 @@
           <a-switch :checked="text.mg_state" />
         </template>
         <!-- 三个小按钮 -->
-        <template #operation>
-          <a-button type="primary">
+
+        <template #operation="{ text }">
+          <!-- 编辑 -->
+          <a-button type="primary" @click="hanleruser(text.id)">
             <template #icon><EditOutlined /> </template>
           </a-button>
-          <a-button type="danger" style="margin: 0 10px">
+          <!-- 删除 -->
+          <a-button
+            type="danger"
+            style="margin: 0 10px"
+            @click="confirmremove(text.id)"
+          >
             <template #icon><DeleteOutlined /> </template>
           </a-button>
+          <!-- 设置 -->
           <a-button style="background-color: #e8a23b; color: #fff">
             <template #icon><SettingOutlined /> </template>
           </a-button>
@@ -117,6 +210,7 @@
         :defaultPageSize="2"
         @change="onChange"
         show-quick-jumper
+        v-model:pagesize="pagesize"
       />
       <!-- 分页 end -->
     </div>
@@ -124,15 +218,17 @@
 </template>
 
 <script>
-import { httpGet } from "../utils/http";
+import { httpGet, httpPost, httpDelete, httpPut } from "../utils/http";
 // 引入请求路径
 import { user } from "../api";
 import {
   EditOutlined,
   DeleteOutlined,
   SettingOutlined,
+  ExclamationCircleOutlined,
 } from "@ant-design/icons-vue";
-
+import { message, Modal } from "ant-design-vue";
+import { createVNode } from "vue";
 export default {
   components: {
     EditOutlined,
@@ -140,6 +236,26 @@ export default {
     SettingOutlined,
   },
   data() {
+    let checkEmail = async (rule, value) => {
+      if (value === "") {
+        return Promise.reject("请输入你的邮箱");
+      } else if (
+        !/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/.test(value)
+      ) {
+        return Promise.reject("邮箱格式不正确");
+      } else {
+        return Promise.resolve();
+      }
+    };
+    let checkmodel = async (rule, value) => {
+      if (value === "") {
+        return Promise.reject("请输入你的号码");
+      } else if (!/^1[34578]\d{9}$/.test(value)) {
+        return Promise.reject("手机号码格式不正确");
+      } else {
+        return Promise.resolve();
+      }
+    };
     return {
       // 表格列配置
       tableData: [],
@@ -150,26 +266,82 @@ export default {
         { title: "电话", dataIndex: "create_time", key: "create_time" },
         { title: "角色", dataIndex: "role_name", key: "role_name" },
         { title: "状态", key: "mg_state", slots: { customRender: "mg_state" } },
-        { title: "操作", key: "age", slots: { customRender: "operation" } },
+        {
+          title: "操作",
+          key: "operation",
+          slots: { customRender: "operation" },
+        },
       ],
       // 分页
+
       current: 1,
       total: 2,
+      pagesize: 2,
       // 指定每页可以显示多少条
       pageSizeOptions: ["2", "5", "8", "10"],
-      visible: false,
-
+      addvisible: false,
       confirmLoading: false,
+
+      // 添加用户模型
+      addruleForm: {
+        username: "",
+        password: "",
+        email: "",
+        mobile: "",
+      },
+      // 规则
+      addrules: {
+        username: [
+          {
+            //   required必须的
+            // trigger什么时候触发
+            required: true,
+            message: "请输入用户名",
+            trigger: "blur",
+          },
+          {
+            min: 4,
+            max: 16,
+            message: "长度在4-16个字符之间",
+            trigger: "blur",
+          },
+        ],
+        password: [
+          {
+            //   required必须的
+            // trigger什么时候触发
+            required: true,
+            message: "请输入密码",
+            trigger: "blur",
+          },
+          {
+            min: 4,
+            max: 16,
+            message: "长度在4-16个字符之间",
+            trigger: "blur",
+          },
+        ],
+        email: [{ validator: checkEmail, trigger: "blur" }],
+        mobile: [{ validator: checkmodel, trigger: "blur" }],
+      },
+      // 回显
+      editvisible: false,
+      EditruleForm: {},
+      Editrules: {
+        email: [{ validator: checkEmail, trigger: "blur" }],
+        mobile: [{ validator: checkmodel, trigger: "blur" }],
+      },
     };
   },
   created() {
     this.getUsers();
   },
   methods: {
-    getUsers(pagenum = 1, pagesize = 2) {
+    // 获取用户列表
+    getUsers() {
       httpGet(user.GetUsers, {
-        pagenum: pagenum,
-        pagesize: pagesize,
+        pagenum: this.current,
+        pagesize: this.pagesize,
       })
         .then((response) => {
           console.log(response);
@@ -200,12 +372,128 @@ export default {
     // 页码改变的回调，参数是改变后的页码以及条数
     onChange(page, pageSize) {
       this.getUsers(page, pageSize);
-      console.log(1);
+      // console.log(1);
     },
     // 点击显示拟态框
     showModal() {
-      this.visible = true;
+      this.addvisible = true;
     },
+    // 添加用户
+    hanleAddUsers() {
+      // 表单校验拦截
+      this.$refs.addFormRef.validate();
+      // 获取请求参数
+      let params = {
+        username: this.addruleForm.username,
+        password: this.addruleForm.password,
+        email: this.addruleForm.email,
+        mobile: this.addruleForm.mobile,
+      };
+      httpPost(user.AddUser, params)
+        .then((response) => {
+          // console.log(response);
+          let { meta } = response;
+          // console.log(data);
+          // 让模态框消失
+          // this.visible = false;
+          if (meta.status == 201) {
+            // 让模态框消失
+            this.addvisible = false;
+            // 清空表单中的输入框
+            this.$refs.addFormRef.resetFields();
+            message.success(meta.msg);
+
+            this.getUsers();
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    // 取消添加用户
+    cancelAddUser() {
+      this.$refs.addFormRef.resetFields();
+    },
+    // 删除用户
+    confirmremove(userId) {
+      var that = this;
+      Modal.confirm({
+        title: "提示",
+        icon: createVNode(ExclamationCircleOutlined),
+        content: "我不管，老子就要删除他",
+        okText: "确认",
+        cancelText: "取消",
+        onOk() {
+          httpDelete(user.Delete + `/${userId}`)
+            .then((response) => {
+              // console.log(response);
+              let { meta } = response;
+              if (meta.status == 200) {
+                message.success(meta.msg);
+                that.getUsers();
+              }
+              if (meta.status == 400) {
+                message.warning(meta.msg);
+                that.getUsers();
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        },
+
+        onCancel() {
+          message.error("就凭你还想删我");
+        },
+      });
+    },
+    // 回显
+    hanleruser(userId) {
+      this.editvisible = true;
+      // console.log(userId);
+      httpGet(user.GetUser + `/${userId}`)
+        .then((response) => {
+          // console.log(response);
+          let { meta, data } = response;
+          // console.log(data);
+          if (meta.status == 200) {
+            this.EditruleForm = data;
+            // console.log(this.EditruleForm);
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    // 更新数据
+    hanleEditUsers() {
+      this.$refs.EditFormRef.validate()
+        .then(() => {
+          httpPut(user.updata + `/${this.EditruleForm.id}`)
+            .then((response) => {
+              console.log(response);
+              let { meta } = response;
+              if (meta.status == 200) {
+                this.editvisible = false;
+                message.success(meta.msg);
+                this.getUsers();
+              }
+              if (meta.status == 400) {
+                this.editvisible = false;
+                message.error(meta.msg);
+                this.getUsers();
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    // 取消更新
+    cancelEditUser() {},
   },
 };
 </script>
