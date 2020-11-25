@@ -12,3 +12,7 @@ export const user = {
 export const rights = {
   AsideMenus: "menus" // 获取左侧菜单权限
 };
+//关于角色的接口
+export const role = {
+  GetRoule: "roles  " // 
+};

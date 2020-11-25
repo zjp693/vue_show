@@ -160,6 +160,32 @@
                     </a-col>
                   </a-row>
                 </a-modal>
+                <!-- 分配角色弹出框 -->
+                <a-modal
+                  title="分配角色"
+                  v-model:visible="Rolesvisible"
+                  @ok="handleRolesOk"
+                >
+                  <p>当前的用户:{{ userInfo.username }}</p>
+                  <p>当前的角色:{{ userInfo.role_name }}</p>
+                  <p>
+                    分配的新角色
+                    <a-select
+                      v-model:value="roleSelected"
+                      placeholder="请选择"
+                      @change="handleReadRole"
+                      style="width: 120px"
+                    >
+                      <a-select-option
+                        v-for="item in rolesList"
+                        :key="item.id"
+                        :value="item.id"
+                      >
+                        {{ item.roleName }}
+                      </a-select-option>
+                    </a-select>
+                  </p>
+                </a-modal>
               </a-col>
             </a-row>
           </a-col>
@@ -174,25 +200,32 @@
         :pagination="false"
       >
         <template #mg_state="{ text }">
-          <a-switch :checked="text.mg_state" />
+          <a-switch
+            v-model:checked="text.mg_state"
+            :id="text.id"
+            @change="hanleonChange"
+          />
         </template>
         <!-- 三个小按钮 -->
 
-        <template #operation="{ text }">
+        <template #operation="{ record }">
           <!-- 编辑 -->
-          <a-button type="primary" @click="hanleruser(text.id)">
+          <a-button type="primary" @click="hanleruser(record.id)">
             <template #icon><EditOutlined /> </template>
           </a-button>
           <!-- 删除 -->
           <a-button
             type="danger"
             style="margin: 0 10px"
-            @click="confirmremove(text.id)"
+            @click="confirmremove(record.id)"
           >
             <template #icon><DeleteOutlined /> </template>
           </a-button>
-          <!-- 设置 -->
-          <a-button style="background-color: #e8a23b; color: #fff">
+          <!-- 角色 -->
+          <a-button
+            style="background-color: #e8a23b; color: #fff"
+            @click="hanleRoles(record)"
+          >
             <template #icon><SettingOutlined /> </template>
           </a-button>
         </template>
@@ -220,7 +253,7 @@
 <script>
 import { httpGet, httpPost, httpDelete, httpPut } from "../utils/http";
 // 引入请求路径
-import { user } from "../api";
+import { user, role } from "../api";
 import {
   EditOutlined,
   DeleteOutlined,
@@ -273,7 +306,6 @@ export default {
         },
       ],
       // 分页
-
       current: 1,
       total: 2,
       pagesize: 2,
@@ -324,13 +356,19 @@ export default {
         email: [{ validator: checkEmail, trigger: "blur" }],
         mobile: [{ validator: checkmodel, trigger: "blur" }],
       },
-      // 回显
+      // 编辑回显
       editvisible: false,
       EditruleForm: {},
       Editrules: {
         email: [{ validator: checkEmail, trigger: "blur" }],
         mobile: [{ validator: checkmodel, trigger: "blur" }],
       },
+      // 分配角色回显
+      Rolesvisible: false,
+      // 角色数据
+      userInfo: {},
+      rolesList: {},
+      roleSelected: null,
     };
   },
   created() {
@@ -494,6 +532,69 @@ export default {
     },
     // 取消更新
     cancelEditUser() {},
+    // 分配角色
+    hanleRoles(user) {
+      this.Rolesvisible = true;
+      this.userInfo = user;
+      // console.log(user);
+      httpGet(role.GetRoule)
+        .then((response) => {
+          // console.log(response);
+          let { data, meta } = response;
+          if (meta.status == 200) {
+            this.rolesList = data;
+            console.log(data);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    // 下拉菜单的值
+    handleReadRole(val) {
+      console.log(val);
+    },
+    //
+    // 确定分配角色
+    handleRolesOk() {
+      if (this.roleSelected == null) {
+        message.error("请你选择一个角色");
+        return;
+      }
+      httpPut(`users/${this.userInfo.id}/role`, {
+        rid: this.roleSelected,
+      })
+        .then((response) => {
+          // console.log(response);
+
+          let { meta } = response;
+          if (meta.status == 400) {
+            message.error(meta.msg);
+            return;
+          }
+          if (meta.status == 200) {
+            message.success(meta.msg);
+            this.getUsers();
+            this.roleSelected = null;
+            this.Rolesvisible = false;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    // 修改用户状态
+    hanleonChange(checked, event) {
+      // console.log(checked);
+      // console.log(event.target.id);
+      httpPut(`users/${checked}/state/${event.target.id}`)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
 };
 </script>
