@@ -10,9 +10,12 @@ export const user = {
 
 // 关于权限的接口
 export const rights = {
-  AsideMenus: "menus" // 获取左侧菜单权限
+  AsideMenus: "menus", // 获取左侧菜单权限
+  GetRights: "rights/list",//获取所有角色的权限
+
+
 };
 //关于角色的接口
 export const role = {
-  GetRoule: "roles  " // 
+  GetRoule: "roles  " // 角色权限
 };
