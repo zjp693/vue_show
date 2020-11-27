@@ -99,7 +99,7 @@
                     </a-col>
                   </a-row>
                 </a-modal>
-                <!-- 编辑用户模态框 -->
+                <!-- 模态框 -->
                 <a-modal
                   v-model:visible="editvisible"
                   title="编辑用户"
@@ -410,7 +410,7 @@ export default {
     // 页码改变的回调，参数是改变后的页码以及条数
     onChange(page, pageSize) {
       this.getUsers(page, pageSize);
-      // console.log(1);
+
     },
     // 点击显示拟态框
     showModal() {

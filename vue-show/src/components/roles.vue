@@ -11,9 +11,55 @@
     </a-breadcrumb>
     <a-card>
       <a-row>
-        <a-col :spam="24">
+        <a-col :spam="24" style="margin-bottom: 24px">
           <!-- 添加角色 -->
-          <a-button type="primary"> 添加角色 </a-button>
+          <a-button type="primary" @click="hanleAddRoles"> 添加角色 </a-button>
+          <a-form>
+            <!-- 添加角色模态框 -->
+            <a-modal
+              v-model:visible="addrolesvisible"
+              title="添加角色"
+              cancelText="取消"
+              okText="确定"
+              @ok="cancelAddRolesUser"
+              @cancel="cancelAdRolesdUser"
+            >
+              <a-row>
+                <a-col :span="24">
+                  <a-form
+                    :model="addRolesForm"
+                    :rules="addRoles"
+                    ref="addFormRef"
+                  >
+                    <a-form-item
+                      has-feedback
+                      label="角色名称"
+                      required
+                      name="roleName"
+                      :wrapperCol="{ span: 18 }"
+                    >
+                      <a-input
+                        type="text"
+                        v-model:value="addRolesForm.roleName"
+                      />
+                    </a-form-item>
+                    <a-form-item
+                      has-feedback
+                      label="角色描述"
+                      required
+                      name="roleDesc"
+                      :wrapperCol="{ span: 18 }"
+                    >
+                      <a-input
+                        type="text"
+                        v-model:value="addRolesForm.roleDesc"
+                      />
+                    </a-form-item>
+                  </a-form>
+                </a-col>
+              </a-row>
+            </a-modal>
+          </a-form>
         </a-col>
       </a-row>
       <a-table
@@ -22,9 +68,55 @@
         :row-key="(record) => record.id"
         bordered
         :pagination="false"
+        childrenColumnName="abc"
       >
         <template #index="{ index }">
           {{ index + 1 }}
+        </template>
+        <!-- 可展开 -->
+        <template #expandedRowRender="{ record }">
+          <a-row
+            :class="['bdbottom vcenter', index1 == 0 ? 'bdtop' : '']"
+            v-for="(item1, index1) in record.children"
+            :key="item1.id"
+            :index1="index1"
+          >
+            <!-- 一级渲染 -->
+            <a-col :span="5">
+              <span>
+                <a-tag closable color="blue"> {{ item1.authName }} </a-tag
+                ><CaretRightOutlined />
+              </span>
+            </a-col>
+            <!-- 二三级渲染 -->
+            <a-col :span="19">
+              <a-row
+                :class="['bdbottom vcenter']"
+                v-for="item2 in item1.children"
+                :key="item2.id"
+              >
+                <a-col :span="6">
+                  <span>
+                    <a-tag closable color="green"> {{ item2.authName }} </a-tag
+                    ><CaretRightOutlined />
+                  </span>
+                </a-col>
+                <a-col :span="18">
+                  <span>
+                    <a-tag
+                      closable
+                      color="orange"
+                      v-for="item3 in item2.children"
+                      :key="item3.id"
+                    >
+                      {{ item3.authName }} </a-tag
+                    ><CaretRightOutlined />
+                  </span>
+                </a-col>
+              </a-row>
+            </a-col>
+          </a-row>
+          <!-- {{ record }} -->
         </template>
         <template #operation>
           <!-- 编辑 -->
@@ -50,14 +142,17 @@
 </template>
 
 <script>
-import { httpGet } from "../utils/http";
+import { httpGet, httpPost } from "../utils/http";
 // 引入请求路径
 import { role } from "../api";
+import { message } from "ant-design-vue";
 import {
   EditOutlined,
   DeleteOutlined,
   SettingOutlined,
+  CaretRightOutlined,
 } from "@ant-design/icons-vue";
+
 export default {
   data() {
     return {
@@ -72,12 +167,21 @@ export default {
         },
       ],
       rolesData: [],
+      // 模态框
+      addrolesvisible: false,
+      // 添加角色模型
+      addRolesForm: {
+        roleName: "",
+        roleDesc: "",
+      },
+      addRoles: {},
     };
   },
   created() {
     this.handelGetRoles();
   },
   methods: {
+    // 获取角色权限
     handelGetRoles() {
       httpGet(role.GetRoule)
         .then((res) => {
@@ -91,11 +195,34 @@ export default {
           console.log(err);
         });
     },
+    // 添加角色
+    hanleAddRoles() {
+      this.addrolesvisible = true;
+    },
+    // 确定
+    cancelAddRolesUser() {
+      httpPost(role.AddRoule, this.addRolesForm)
+        .then((res) => {
+          console.log(res);
+          let { meta } = res;
+          if (meta.status == 201) {
+            message.success(meta.msg);
+            // this.cancelAddRolesUser();
+            this.addrolesvisible = false;
+          } 
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    // 取消
+    cancelAdRolesdUser() {},
   },
   components: {
     EditOutlined,
     DeleteOutlined,
     SettingOutlined,
+    CaretRightOutlined,
   },
 };
 </script>

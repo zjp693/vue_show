@@ -17,5 +17,6 @@ export const rights = {
 };
 //关于角色的接口
 export const role = {
-  GetRoule: "roles  " // 角色权限
+  GetRoule: "roles", // 角色权限
+  AddRoule: "roles",//添加角色
 };
