@@ -62,6 +62,7 @@
           </a-form>
         </a-col>
       </a-row>
+      <!-- 表格 -->
       <a-table
         :columns="rolesColumns"
         :data-source="rolesData"
@@ -84,7 +85,8 @@
             <!-- 一级渲染 -->
             <a-col :span="5">
               <span>
-                <a-tag closable color="blue"> {{ item1.authName }} </a-tag
+                <a-tag closable @close="hanleTagClose" color="blue">
+                  {{ item1.authName }} </a-tag
                 ><CaretRightOutlined />
               </span>
             </a-col>
@@ -97,7 +99,12 @@
               >
                 <a-col :span="6">
                   <span>
-                    <a-tag closable color="green"> {{ item2.authName }} </a-tag
+                    <a-tag
+                      closable
+                      color="green"
+                      @close="hanleTagClose($event, record.id, item2.id)"
+                    >
+                      {{ item2.authName }} </a-tag
                     ><CaretRightOutlined />
                   </span>
                 </a-col>
@@ -108,6 +115,7 @@
                       color="orange"
                       v-for="item3 in item2.children"
                       :key="item3.id"
+                      @close="hanleTagClose($event, record.id, item3.id)"
                     >
                       {{ item3.authName }} </a-tag
                     ><CaretRightOutlined />
@@ -118,7 +126,7 @@
           </a-row>
           <!-- {{ record }} -->
         </template>
-        <template #operation>
+        <template #operation="{ record }">
           <!-- 编辑 -->
           <a-button size="small" type="primary">
             <EditOutlined />编辑
@@ -132,27 +140,44 @@
             type="default"
             size="small"
             style="background-color: #e6a23c; color: #fff"
+            @click="handleReadRights(record)"
           >
             <SettingOutlined />分配权限</a-button
           >
         </template>
       </a-table>
     </a-card>
+    <!-- 树状图 -->
+    <a-modal
+      v-model:visible="treeVisible"
+      title="分配权限"
+      :afterClose="hanleRestkey"
+    >
+      <a-tree
+        checkable
+        :tree-data="treeData"
+        :replaceFields="{ title: 'authName', key: 'id', children: 'children' }"
+        v-model:checkedKeys="checkedKeys"
+        defaultExpandAll
+      ></a-tree>
+    </a-modal>
   </a-layout>
 </template>
 
 <script>
-import { httpGet, httpPost } from "../utils/http";
+import { httpGet, httpPost, httpDelete } from "../utils/http";
 // 引入请求路径
-import { role } from "../api";
+import { rights, role } from "../api";
 import { message } from "ant-design-vue";
+import { createVNode } from "vue";
+import { Modal } from "ant-design-vue";
 import {
   EditOutlined,
   DeleteOutlined,
   SettingOutlined,
   CaretRightOutlined,
 } from "@ant-design/icons-vue";
-
+import { ExclamationCircleOutlined } from "@ant-design/icons-vue";
 export default {
   data() {
     return {
@@ -175,6 +200,10 @@ export default {
         roleDesc: "",
       },
       addRoles: {},
+      // 树状图
+      treeVisible: false,
+      treeData: [],
+      checkedKeys: [145],
     };
   },
   created() {
@@ -185,7 +214,7 @@ export default {
     handelGetRoles() {
       httpGet(role.GetRoule)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           let { data, meta } = res;
           if (meta.status == 200) {
             this.rolesData = data;
@@ -209,7 +238,8 @@ export default {
             message.success(meta.msg);
             // this.cancelAddRolesUser();
             this.addrolesvisible = false;
-          } 
+            this.handelGetRoles();
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -217,6 +247,65 @@ export default {
     },
     // 取消
     cancelAdRolesdUser() {},
+    // 删除标签
+    hanleTagClose(e, rolesId, rightId) {
+      e.preventDefault();
+      // console.log(e, rolesId, rightId);
+      let that = this;
+      Modal.confirm({
+        title: "提示",
+        icon: createVNode(ExclamationCircleOutlined),
+        content: "是否确定删除",
+        okText: "确认",
+        cancelText: "取消",
+        onCancel() {
+          message.warning("已取消删除");
+        },
+        onOk() {
+          httpDelete(`roles/${rolesId}/rights/${rightId}`)
+            .then((res) => {
+              // console.log(res);
+              let { meta } = res;
+              if (meta.status == 200) {
+                message.success(meta.msg);
+                that.handelGetRoles();
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        },
+      });
+    },
+    // 树状图
+    handleReadRights(record) {
+      httpGet(rights.GetTreeRights)
+        .then((res) => {
+          console.log(res);
+          let { data, meta } = res;
+          if (meta.status == 200) {
+            console.log(data);
+            this.treeData = data;
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      this.treeVisible = true;
+      // 某一个角色拥有的权限
+      this.hanleLeafData(record, this.checkedKeys);
+    },
+    hanleLeafData(node, arr) {
+      // 如果是第三层
+      if (!node.children) {
+        return arr.push(node.id);
+      }
+      // 如果是第一，二层 并且有childeren就重新执行
+      node.children.forEach((ele) => this.hanleLeafData(ele, arr));
+    },
+    hanleRestkey() {
+      this.checkedKeys = [];
+    },
   },
   components: {
     EditOutlined,

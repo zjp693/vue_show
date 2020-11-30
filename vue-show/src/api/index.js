@@ -12,6 +12,7 @@ export const user = {
 export const rights = {
   AsideMenus: "menus", // 获取左侧菜单权限
   GetRights: "rights/list",//获取所有角色的权限
+  GetTreeRights: "rights/tree",//
 
 
 };
