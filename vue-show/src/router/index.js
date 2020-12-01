@@ -35,6 +35,11 @@ const routes = [
         name: "roles",
         path: "/roles",
         component: () => import("../components/roles")
+      },
+      {
+        name: "orders",
+        path: "/orders",
+        component: () => import("../components/orders")
       }
     ]
   }

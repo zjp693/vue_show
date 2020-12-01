@@ -152,6 +152,7 @@
       v-model:visible="treeVisible"
       title="分配权限"
       :afterClose="hanleRestkey"
+      @ok="handletreeok"
     >
       <a-tree
         checkable
@@ -203,7 +204,8 @@ export default {
       // 树状图
       treeVisible: false,
       treeData: [],
-      checkedKeys: [145],
+      checkedKeys: [],
+      roleId: "",
     };
   },
   created() {
@@ -279,19 +281,21 @@ export default {
     },
     // 树状图
     handleReadRights(record) {
+      this.roleId = record.id;
       httpGet(rights.GetTreeRights)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           let { data, meta } = res;
           if (meta.status == 200) {
-            console.log(data);
+            // console.log(data);
+            // 显示模态框
+            this.treeVisible = true;
             this.treeData = data;
           }
         })
         .catch((err) => {
           console.log(err);
         });
-      this.treeVisible = true;
       // 某一个角色拥有的权限
       this.hanleLeafData(record, this.checkedKeys);
     },
@@ -303,8 +307,28 @@ export default {
       // 如果是第一，二层 并且有childeren就重新执行
       node.children.forEach((ele) => this.hanleLeafData(ele, arr));
     },
+    // 模态框关闭的时调用
     hanleRestkey() {
       this.checkedKeys = [];
+    },
+    // 树状图确定
+    handletreeok() {
+      // console.log(this.checkedKeys);
+      httpPost(`roles/${this.roleId}/rights`, {
+        rids: this.checkedKeys.join(","),
+      })
+        .then((res) => {
+          // console.log(res);
+          let { meta } = res;
+          if (meta.status == 200) {
+            message.success(meta.msg);
+            this.treeVisible = false;
+            this.handelGetRoles();
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
   components: {

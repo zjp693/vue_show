@@ -405,12 +405,12 @@ export default {
     },
     onShowSizeChange(current, pageSize) {
       // console.log(current, pageSize);
+      this.current = current;
       this.getUsers(current, pageSize);
     },
     // 页码改变的回调，参数是改变后的页码以及条数
     onChange(page, pageSize) {
       this.getUsers(page, pageSize);
-
     },
     // 点击显示拟态框
     showModal() {
