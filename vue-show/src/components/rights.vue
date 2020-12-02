@@ -12,7 +12,7 @@
     <a-table
       :columns="rightsColumns"
       :data-source="rightsData"
-      :row-key="(record) => record.id"
+      :row-key="record => record.id"
       bordered
       :pagination="false"
     >
@@ -27,7 +27,7 @@
       </template>
     </a-table>
   </a-layout>
-</template> 
+</template>
 
 <script>
 import { httpGet } from "../utils/http";
@@ -39,9 +39,9 @@ export default {
         { title: "#", slots: { customRender: "index" }, key: "index" },
         { title: "权限名称", dataIndex: "authName", key: "" },
         { title: "路径", dataIndex: "path", key: "" },
-        { title: "权限等级", slots: { customRender: "level" } },
+        { title: "权限等级", slots: { customRender: "level" } }
       ],
-      rightsData: [],
+      rightsData: []
     };
   },
   created() {
@@ -50,18 +50,18 @@ export default {
   methods: {
     handelGetRight() {
       httpGet(rights.GetRights)
-        .then((res) => {
+        .then(res => {
           console.log(res);
           let { data, meta } = res;
           if (meta.status == 200) {
             this.rightsData = data;
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

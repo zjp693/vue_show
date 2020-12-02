@@ -236,7 +236,7 @@
         v-model:current="current"
         :total="total"
         class="page"
-        :show-total="(total) => `共 ${total} 条`"
+        :show-total="total => `共 ${total} 条`"
         show-size-changer
         @showSizeChange="onShowSizeChange"
         :page-size-options="pageSizeOptions"
@@ -258,7 +258,7 @@ import {
   EditOutlined,
   DeleteOutlined,
   SettingOutlined,
-  ExclamationCircleOutlined,
+  ExclamationCircleOutlined
 } from "@ant-design/icons-vue";
 import { message, Modal } from "ant-design-vue";
 import { createVNode } from "vue";
@@ -266,7 +266,7 @@ export default {
   components: {
     EditOutlined,
     DeleteOutlined,
-    SettingOutlined,
+    SettingOutlined
   },
   data() {
     let checkEmail = async (rule, value) => {
@@ -302,8 +302,8 @@ export default {
         {
           title: "操作",
           key: "operation",
-          slots: { customRender: "operation" },
-        },
+          slots: { customRender: "operation" }
+        }
       ],
       // 分页
       current: 1,
@@ -319,7 +319,7 @@ export default {
         username: "",
         password: "",
         email: "",
-        mobile: "",
+        mobile: ""
       },
       // 规则
       addrules: {
@@ -329,14 +329,14 @@ export default {
             // trigger什么时候触发
             required: true,
             message: "请输入用户名",
-            trigger: "blur",
+            trigger: "blur"
           },
           {
             min: 4,
             max: 16,
             message: "长度在4-16个字符之间",
-            trigger: "blur",
-          },
+            trigger: "blur"
+          }
         ],
         password: [
           {
@@ -344,31 +344,31 @@ export default {
             // trigger什么时候触发
             required: true,
             message: "请输入密码",
-            trigger: "blur",
+            trigger: "blur"
           },
           {
             min: 4,
             max: 16,
             message: "长度在4-16个字符之间",
-            trigger: "blur",
-          },
+            trigger: "blur"
+          }
         ],
         email: [{ validator: checkEmail, trigger: "blur" }],
-        mobile: [{ validator: checkmodel, trigger: "blur" }],
+        mobile: [{ validator: checkmodel, trigger: "blur" }]
       },
       // 编辑回显
       editvisible: false,
       EditruleForm: {},
       Editrules: {
         email: [{ validator: checkEmail, trigger: "blur" }],
-        mobile: [{ validator: checkmodel, trigger: "blur" }],
+        mobile: [{ validator: checkmodel, trigger: "blur" }]
       },
       // 分配角色回显
       Rolesvisible: false,
       // 角色数据
       userInfo: {},
       rolesList: {},
-      roleSelected: null,
+      roleSelected: null
     };
   },
   created() {
@@ -379,9 +379,9 @@ export default {
     getUsers() {
       httpGet(user.GetUsers, {
         pagenum: this.current,
-        pagesize: this.pagesize,
+        pagesize: this.pagesize
       })
-        .then((response) => {
+        .then(response => {
           console.log(response);
           let { meta, data } = response;
 
@@ -399,7 +399,7 @@ export default {
             });
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -425,10 +425,10 @@ export default {
         username: this.addruleForm.username,
         password: this.addruleForm.password,
         email: this.addruleForm.email,
-        mobile: this.addruleForm.mobile,
+        mobile: this.addruleForm.mobile
       };
       httpPost(user.AddUser, params)
-        .then((response) => {
+        .then(response => {
           // console.log(response);
           let { meta } = response;
           // console.log(data);
@@ -444,7 +444,7 @@ export default {
             this.getUsers();
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -463,7 +463,7 @@ export default {
         cancelText: "取消",
         onOk() {
           httpDelete(user.Delete + `/${userId}`)
-            .then((response) => {
+            .then(response => {
               // console.log(response);
               let { meta } = response;
               if (meta.status == 200) {
@@ -475,14 +475,14 @@ export default {
                 that.getUsers();
               }
             })
-            .catch((err) => {
+            .catch(err => {
               console.log(err);
             });
         },
 
         onCancel() {
           message.error("就凭你还想删我");
-        },
+        }
       });
     },
     // 回显
@@ -490,7 +490,7 @@ export default {
       this.editvisible = true;
       // console.log(userId);
       httpGet(user.GetUser + `/${userId}`)
-        .then((response) => {
+        .then(response => {
           // console.log(response);
           let { meta, data } = response;
           // console.log(data);
@@ -499,7 +499,7 @@ export default {
             // console.log(this.EditruleForm);
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -508,7 +508,7 @@ export default {
       this.$refs.EditFormRef.validate()
         .then(() => {
           httpPut(user.updata + `/${this.EditruleForm.id}`)
-            .then((response) => {
+            .then(response => {
               console.log(response);
               let { meta } = response;
               if (meta.status == 200) {
@@ -522,11 +522,11 @@ export default {
                 this.getUsers();
               }
             })
-            .catch((err) => {
+            .catch(err => {
               console.log(err);
             });
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -538,7 +538,7 @@ export default {
       this.userInfo = user;
       // console.log(user);
       httpGet(role.GetRoule)
-        .then((response) => {
+        .then(response => {
           // console.log(response);
           let { data, meta } = response;
           if (meta.status == 200) {
@@ -546,7 +546,7 @@ export default {
             console.log(data);
           }
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
     },
@@ -562,9 +562,9 @@ export default {
         return;
       }
       httpPut(`users/${this.userInfo.id}/role`, {
-        rid: this.roleSelected,
+        rid: this.roleSelected
       })
-        .then((response) => {
+        .then(response => {
           // console.log(response);
 
           let { meta } = response;
@@ -579,7 +579,7 @@ export default {
             this.Rolesvisible = false;
           }
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
     },
@@ -588,14 +588,14 @@ export default {
       // console.log(checked);
       // console.log(event.target.id);
       httpPut(`users/${checked}/state/${event.target.id}`)
-        .then((response) => {
+        .then(response => {
           console.log(response);
         })
-        .catch((error) => {
+        .catch(error => {
           console.log(error);
         });
-    },
-  },
+    }
+  }
 };
 </script>
 

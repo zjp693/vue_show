@@ -29,8 +29,7 @@ const routes = [
         name: "rights",
         path: "/rights",
         component: () => import("../components/rights")
-      }
-      ,
+      },
       {
         name: "roles",
         path: "/roles",
@@ -40,6 +39,11 @@ const routes = [
         name: "orders",
         path: "/orders",
         component: () => import("../components/orders")
+      },
+      {
+        name: "reports",
+        path: "/reports",
+        component: () => import("../components/Reports")
       }
     ]
   }

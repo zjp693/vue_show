@@ -66,7 +66,7 @@
       <a-table
         :columns="rolesColumns"
         :data-source="rolesData"
-        :row-key="(record) => record.id"
+        :row-key="record => record.id"
         bordered
         :pagination="false"
         childrenColumnName="abc"
@@ -176,7 +176,7 @@ import {
   EditOutlined,
   DeleteOutlined,
   SettingOutlined,
-  CaretRightOutlined,
+  CaretRightOutlined
 } from "@ant-design/icons-vue";
 import { ExclamationCircleOutlined } from "@ant-design/icons-vue";
 export default {
@@ -189,8 +189,8 @@ export default {
         {
           title: "操作",
           slots: { customRender: "operation" },
-          key: "inoperationdex",
-        },
+          key: "inoperationdex"
+        }
       ],
       rolesData: [],
       // 模态框
@@ -198,14 +198,14 @@ export default {
       // 添加角色模型
       addRolesForm: {
         roleName: "",
-        roleDesc: "",
+        roleDesc: ""
       },
       addRoles: {},
       // 树状图
       treeVisible: false,
       treeData: [],
       checkedKeys: [],
-      roleId: "",
+      roleId: ""
     };
   },
   created() {
@@ -215,14 +215,14 @@ export default {
     // 获取角色权限
     handelGetRoles() {
       httpGet(role.GetRoule)
-        .then((res) => {
+        .then(res => {
           // console.log(res);
           let { data, meta } = res;
           if (meta.status == 200) {
             this.rolesData = data;
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -233,7 +233,7 @@ export default {
     // 确定
     cancelAddRolesUser() {
       httpPost(role.AddRoule, this.addRolesForm)
-        .then((res) => {
+        .then(res => {
           console.log(res);
           let { meta } = res;
           if (meta.status == 201) {
@@ -243,7 +243,7 @@ export default {
             this.handelGetRoles();
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -265,7 +265,7 @@ export default {
         },
         onOk() {
           httpDelete(`roles/${rolesId}/rights/${rightId}`)
-            .then((res) => {
+            .then(res => {
               // console.log(res);
               let { meta } = res;
               if (meta.status == 200) {
@@ -273,17 +273,17 @@ export default {
                 that.handelGetRoles();
               }
             })
-            .catch((err) => {
+            .catch(err => {
               console.log(err);
             });
-        },
+        }
       });
     },
     // 树状图
     handleReadRights(record) {
       this.roleId = record.id;
       httpGet(rights.GetTreeRights)
-        .then((res) => {
+        .then(res => {
           // console.log(res);
           let { data, meta } = res;
           if (meta.status == 200) {
@@ -293,7 +293,7 @@ export default {
             this.treeData = data;
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
       // 某一个角色拥有的权限
@@ -305,7 +305,7 @@ export default {
         return arr.push(node.id);
       }
       // 如果是第一，二层 并且有childeren就重新执行
-      node.children.forEach((ele) => this.hanleLeafData(ele, arr));
+      node.children.forEach(ele => this.hanleLeafData(ele, arr));
     },
     // 模态框关闭的时调用
     hanleRestkey() {
@@ -315,9 +315,9 @@ export default {
     handletreeok() {
       // console.log(this.checkedKeys);
       httpPost(`roles/${this.roleId}/rights`, {
-        rids: this.checkedKeys.join(","),
+        rids: this.checkedKeys.join(",")
       })
-        .then((res) => {
+        .then(res => {
           // console.log(res);
           let { meta } = res;
           if (meta.status == 200) {
@@ -326,17 +326,17 @@ export default {
             this.handelGetRoles();
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
-    },
+    }
   },
   components: {
     EditOutlined,
     DeleteOutlined,
     SettingOutlined,
-    CaretRightOutlined,
-  },
+    CaretRightOutlined
+  }
 };
 </script>
 

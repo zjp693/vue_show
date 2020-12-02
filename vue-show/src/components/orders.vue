@@ -69,26 +69,41 @@
         @change="onChange"
       />
     </a-card>
-    <!-- 分配角色弹出框 -->
-    <a-modal title="分配角色" v-model:visible="address.visible">
+
+    <!-- 修改地址弹出框 -->
+    <a-modal
+      title="修改地址"
+      v-model:visible="address.visible"
+      @ok="hanleAddressOk"
+      :afterClose="hanleAddreeCol"
+    >
       <a-form
         :model="address.FormModel"
         :rules="address.FormRules"
-        ref="address.editFormRef"
+        ref="addreRef"
       >
-        <a-form-item ref="name" label="省市区/县" name="ssq">
-          <!-- <a-input v-model:value="form.name" /> -->
+        <a-form-item required label="省市区/县" name="province">
+          <a-cascader
+            :options="options"
+            placeholder="请选择"
+            v-model:value="address.FormModel.province"
+          />
         </a-form-item>
-        <a-cascader required placeholder="请选择" />
+        <a-form-item required label="详细地址" name="detail">
+          <a-input v-model:value="address.FormModel.detail" />
+        </a-form-item>
       </a-form>
     </a-modal>
   </a-layout>
-</template> 
+</template>
 
 <script>
+// import { message } from "ant-design-vue";
 import { httpGet } from "../utils/http";
 import { order } from "../api";
 import { EditOutlined, EnvironmentOutlined } from "@ant-design/icons-vue";
+import citydata from "../api/citydata";
+import { message } from "ant-design-vue";
 export default {
   data() {
     return {
@@ -101,6 +116,21 @@ export default {
       },
       address: {
         visible: false,
+        FormModel: { province: [], detail: "" },
+        FormRules: {
+          province: [
+            {
+              type: "array",
+              required: true,
+              message: "请选择省市地址",
+              trigger: "blur",
+            },
+          ],
+          detail: [
+            { required: true, message: "请输入详细地址", trigger: "blur" },
+          ],
+        },
+        options: [],
       },
       //   表格数据
       table: {
@@ -131,6 +161,9 @@ export default {
   },
   methods: {
     hanleReadOrdes() {
+      // 城市信息
+      this.options = citydata;
+      // console.log();
       httpGet(order.GetOrders, {
         pagenum: this.pagintion.pagenum,
         pagesize: this.pagintion.pagesize,
@@ -165,6 +198,22 @@ export default {
     },
     handleReadAddress() {
       this.address.visible = true;
+    },
+    hanleAddressOk() {
+      this.$refs.addreRef
+        .validate()
+        .then((res) => {
+          console.log(res);
+          this.address.visible = false;
+          message.success("修改地址成功");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+    hanleAddreeCol() {
+      this.$refs.addreRef.resetFields();
+      // console.log(1);
     },
   },
   components: {
