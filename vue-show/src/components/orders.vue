@@ -14,7 +14,11 @@
       <!-- 搜索框 -->
       <a-row>
         <a-col :span="8">
-          <a-input-search placeholder="请输入搜索内容" size="large" />
+          <a-input-search
+            placeholder="请输入搜索内容"
+            size="large"
+            style="margin-bottom: 20px"
+          />
           <template #enterButton>
             <a-button> 搜索 </a-button>
           </template></a-col

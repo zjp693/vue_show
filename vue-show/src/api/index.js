@@ -14,12 +14,21 @@ export const rights = {
   GetRights: "rights/list", //获取所有角色的权限
   GetTreeRights: "rights/tree" //
 };
+
 //关于角色的接口
 export const role = {
   GetRoule: "roles", // 角色权限
   AddRoule: "roles" //添加角色
 };
+
 // 关于订单的接口
 export const order = {
-  GetOrders: "orders" //订单的接口
+  GetOrders: "orders", //订单的接口
+};
+
+// 关于商品的接口
+export const goods = {
+  GetGoods: "goods", //获取商品列表
+  GetCategories: "categories",// 获取商品分类
+
 };

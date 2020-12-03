@@ -44,7 +44,19 @@ const routes = [
         name: "reports",
         path: "/reports",
         component: () => import("../components/Reports")
-      }
+      },
+      // goods组件
+      {
+        name: "goods",
+        path: "/goods",
+        component: () => import("../components/Goods")
+      },
+      //categories 组件
+      {
+        name: "categories",
+        path: "/categories",
+        component: () => import("../components/Categories")
+      },
     ]
   }
 ];
