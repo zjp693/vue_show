@@ -10,11 +10,15 @@
       <a-breadcrumb-item>商品列表</a-breadcrumb-item>
     </a-breadcrumb>
     <a-card>
-      <a-row>
-        <a-col :spam="24" style="margin-bottom: 24px">
+      <a-row :gutter="16">
+        <a-col class="gutter-row" :span="8">
+          <a-form-item :wrapperCol="{ span: 24 }">
+            <a-input-search size="large" placeholder="请输入内容" />
+          </a-form-item>
+        </a-col>
+        <a-col :spam="8" style="margin-bottom: 24px">
           <!-- 添加角色 -->
-          <a-button type="primary"> 添加分类 </a-button>
-          <a-form> </a-form>
+          <a-button type="primary" size="large"> 添加分类 </a-button>
         </a-col>
       </a-row>
 
