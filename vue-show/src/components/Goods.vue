@@ -18,7 +18,11 @@
         </a-col>
         <a-col :spam="8" style="margin-bottom: 24px">
           <!-- 添加角色 -->
-          <a-button type="primary" size="large"> 添加分类 </a-button>
+          <router-link to="/Goods/Add"
+            ><a-button type="primary" size="large">
+              添加商品
+            </a-button></router-link
+          >
         </a-col>
       </a-row>
 
