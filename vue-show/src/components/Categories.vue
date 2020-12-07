@@ -13,7 +13,7 @@
       <a-row>
         <a-col :spam="24" style="margin-bottom: 24px">
           <!-- 添加角色 -->
-          <a-button type="primary"> 添加分类 </a-button>
+          <a-button type="primary"> 添加商品 </a-button>
           <a-form> </a-form>
         </a-col>
       </a-row>
