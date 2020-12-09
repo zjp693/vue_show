@@ -30,5 +30,6 @@ export const order = {
 export const goods = {
   GetGoods: "goods", //获取商品列表
   GetCategories: "categories",// 获取商品分类
+  AddGoods: "goods",
 
 };

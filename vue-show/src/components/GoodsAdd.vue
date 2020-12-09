@@ -111,11 +111,20 @@
               listType="picture"
               @change="hanleUploadchang"
               @preview="hanleUploadPrewview"
+              :remove="handleUploadRemove"
             >
               <a-button type="primary"> <upload-outlined /> 上传图片 </a-button>
             </a-upload>
           </a-tab-pane>
-          <a-tab-pane key="4" tab="商品内容"> Content of Tab 3 </a-tab-pane>
+          <a-tab-pane key="4" tab="商品内容">
+            <ckeditor
+              :editor="editor"
+              v-model="addGoodsModel.goods_introduce"
+              @blur="onEditorBlur"
+            ></ckeditor>
+            <!-- 添加商品按钮 -->
+            <a-button type="primary" @click="handleAddGoods">添加商品</a-button>
+          </a-tab-pane>
         </a-tabs>
       </a-form>
     </a-card>
@@ -135,9 +144,11 @@
 import { goods } from "@/api";
 
 // 导入请求方式
-import { httpGet } from "@/utils/http";
+import { httpGet, httpPost } from "@/utils/http";
 import { message } from "ant-design-vue";
 import { UploadOutlined } from "@ant-design/icons-vue";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import _ from "lodash";
 export default {
   data() {
     return {
@@ -183,6 +194,7 @@ export default {
       headerObj: { Authorization: window.sessionStorage.getItem("token") },
       prewviewPath: "",
       previewVisible: false,
+      editor: ClassicEditor,
     };
   },
   created() {
@@ -251,7 +263,16 @@ export default {
       }
     },
     hanleUploadchang(file) {
-      console.log(file);
+      // console.log(file);
+      if (file.file.status == "done") {
+        let { fileList } = file;
+        let arr = [];
+        fileList.forEach((item) => {
+          arr.push({ pic: item.response.data.tmp_path });
+        });
+        this.addGoodsModel.pics = arr;
+        console.log(this.addGoodsModel.pics);
+      }
     },
     hanleUploadPrewview(file) {
       // console.log(file);
@@ -268,6 +289,66 @@ export default {
       this.previewVisible = false;
       // this.prewviewPath = "";
     },
+
+    handleUploadRemove(file) {
+      // 在pics中查找和即将删除的路径一样的图片的索引
+      let index = this.addGoodsModel.pics.findIndex(
+        (item) => item.pic == file.response.data.tmp_path
+      );
+      console.log(index);
+      // 通过索引把图片的临时路径从数组中删除
+      this.addGoodsModel.pics.splice(index, 1);
+    },
+    onEditorBlur() {
+      console.log(this.addGoodsModel.goods_introduce);
+    },
+    // 添加商品
+    handleAddGoods() {
+      // console.log(this.addGoodsModel);
+      // console.log(this.manyData);
+      // console.log(this.onlyData);
+      // 1.表单校验
+      this.$refs.addGoodsRef
+        .validate()
+        .then(() => {
+          let form = _.cloneDeep(this.addGoodsModel);
+          // 2.收集分类数据 goods_cat
+          form.goods_cat = form.goods_cat.join(",");
+          console.log(form);
+          // 3.收集动态参数(manyData);
+          this.manyData.forEach((item) => {
+            form.attrs.push({
+              attr_id: item.attr_id,
+              attr_value: item.attr_vals.join(" "),
+            });
+          });
+          // 4.收集静态参数
+          this.onlyData.forEach((item) => {
+            form.attrs.push({
+              attr_id: item.attr_id,
+              attr_value: item.attr_vals,
+            });
+          });
+          // 5.发请求
+          // console.log(form)
+          httpPost(goods.AddGoods, form)
+            .then((response) => {
+              console.log(response);
+              let { meta } = response;
+              if (meta.status == 201) {
+                message.success(meta.msg);
+                this.$router.push("/goods");
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        })
+        .catch((err) => {
+          message.error("您还有未填完的项");
+          console.log(err);
+        });
+    },
   },
   components: {
     UploadOutlined,
@@ -276,4 +357,7 @@ export default {
 </script>
 
 <style>
+.ck-editor__editable {
+  min-height: 400px;
+}
 </style>
