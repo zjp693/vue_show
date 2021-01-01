@@ -23,13 +23,12 @@ export const role = {
 
 // 关于订单的接口
 export const order = {
-  GetOrders: "orders", //订单的接口
+  GetOrders: "orders" //订单的接口
 };
 
 // 关于商品的接口
 export const goods = {
   GetGoods: "goods", //获取商品列表
-  GetCategories: "categories",// 获取商品分类
-  AddGoods: "goods",
-
+  GetCategories: "categories", // 获取商品分类
+  AddGoods: "goods"
 };

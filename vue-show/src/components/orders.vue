@@ -26,7 +26,7 @@
       </a-row>
       <!-- 表单 -->
       <a-table
-        :row-key="(record) => record.order_id"
+        :row-key="record => record.order_id"
         :columns="table.Cols"
         :data-source="table.Data"
         :pagination="false"
@@ -64,7 +64,7 @@
         v-model:current="pagintion.pagenum"
         v-model:pagesize="pagintion.pagesize"
         :total="pagintion.total"
-        :show-total="(total) => `共 ${pagintion.total} 条`"
+        :show-total="total => `共 ${pagintion.total} 条`"
         show-size-changer
         show-quick-jumper
         :page-size-options="pagintion.pageSizeOptions"
@@ -116,7 +116,7 @@ export default {
         pagesize: 2,
         pagenum: 1,
         total: 0,
-        pageSizeOptions: ["2", "5", "8", "10"],
+        pageSizeOptions: ["2", "5", "8", "10"]
       },
       address: {
         visible: false,
@@ -127,14 +127,14 @@ export default {
               type: "array",
               required: true,
               message: "请选择省市地址",
-              trigger: "blur",
-            },
+              trigger: "blur"
+            }
           ],
           detail: [
-            { required: true, message: "请输入详细地址", trigger: "blur" },
-          ],
+            { required: true, message: "请输入详细地址", trigger: "blur" }
+          ]
         },
-        options: [],
+        options: []
       },
       //   表格数据
       table: {
@@ -146,18 +146,18 @@ export default {
             title: "是否付款",
 
             key: "",
-            slots: { customRender: "pay_status" },
+            slots: { customRender: "pay_status" }
           },
           { title: "是否发货", dataIndex: "is_send", key: "" },
           { title: "下单时间", dataIndex: "create_time", key: "" },
           {
             title: "操作",
             key: "operation",
-            slots: { customRender: "operation" },
-          },
+            slots: { customRender: "operation" }
+          }
         ],
-        Data: [],
-      },
+        Data: []
+      }
     };
   },
   created() {
@@ -170,9 +170,9 @@ export default {
       // console.log();
       httpGet(order.GetOrders, {
         pagenum: this.pagintion.pagenum,
-        pagesize: this.pagintion.pagesize,
+        pagesize: this.pagintion.pagesize
       })
-        .then((res) => {
+        .then(res => {
           console.log(res);
           let { data, meta } = res;
           if (meta.status == 200) {
@@ -181,7 +181,7 @@ export default {
             this.table.Data = data.goods;
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -206,24 +206,24 @@ export default {
     hanleAddressOk() {
       this.$refs.addreRef
         .validate()
-        .then((res) => {
+        .then(res => {
           console.log(res);
           this.address.visible = false;
           message.success("修改地址成功");
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
     hanleAddreeCol() {
       this.$refs.addreRef.resetFields();
       // console.log(1);
-    },
+    }
   },
   components: {
     EditOutlined,
-    EnvironmentOutlined,
-  },
+    EnvironmentOutlined
+  }
 };
 </script>
 

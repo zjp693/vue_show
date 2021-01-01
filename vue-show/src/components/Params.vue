@@ -40,7 +40,7 @@
           <!-- 表格 -->
           <a-table
             style="margin-top: 24px"
-            :row-key="(record) => record.attr_id"
+            :row-key="record => record.attr_id"
             :columns="table.cols"
             :data-source="table.manyData"
             bordered
@@ -98,7 +98,7 @@
           <!-- 表格 -->
           <a-table
             style="margin-top: 24px"
-            :row-key="(record) => record.attr_id"
+            :row-key="record => record.attr_id"
             :columns="table.cols"
             :data-source="table.onlyData"
             bordered
@@ -151,7 +151,7 @@ import { goods } from "../api";
 import {
   EditOutlined,
   DeleteOutlined,
-  PlusOutlined,
+  PlusOutlined
 } from "@ant-design/icons-vue";
 import { message } from "ant-design-vue";
 export default {
@@ -160,44 +160,44 @@ export default {
       cascader: {
         selectedKey: [],
         data: [],
-        config: { label: "cat_name", value: "cat_id", children: "children" },
+        config: { label: "cat_name", value: "cat_id", children: "children" }
       },
       //  表格数据
       tabs: {
-        activeKey: "many",
+        activeKey: "many"
       },
       table: {
         cols: [
           {
             title: "#",
             key: "index",
-            slots: { customRender: "index" },
+            slots: { customRender: "index" }
           },
           {
             title: "属性名称",
-            dataIndex: "attr_name",
+            dataIndex: "attr_name"
           },
           {
             title: "操作",
             key: "operation",
-            slots: { customRender: "operation" },
-          },
+            slots: { customRender: "operation" }
+          }
         ],
         manyData: [],
-        onlyData: [],
+        onlyData: []
       },
       // 添加参数 模态框
       AddParams: {
         visible: false,
         Model: {
-          attr_name: "",
+          attr_name: ""
         },
         Rules: {
           attr_name: [
-            { required: true, message: "请填写参数", trigger: "blur" },
-          ],
-        },
-      },
+            { required: true, message: "请填写参数", trigger: "blur" }
+          ]
+        }
+      }
     };
   },
   created() {
@@ -207,14 +207,14 @@ export default {
     //   层级列表
     hanleReadCateList() {
       httpGet(goods.GetCategories)
-        .then((res) => {
+        .then(res => {
           //   console.log(ers);
           let { data, meta } = res;
           if (meta.status == 200) {
             this.cascader.data = data;
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -222,16 +222,16 @@ export default {
     handleReadParamsList() {
       console.log(this.tabs.activeKey);
       httpGet(`categories/${this.cateId}/attributes`, {
-        sel: this.tabs.activeKey,
+        sel: this.tabs.activeKey
       })
-        .then((response) => {
+        .then(response => {
           console.log(response);
           let { meta, data } = response;
 
           if (meta.status == 200) {
             if (this.tabs.activeKey == "many") {
               // 在many的时候才需要处理成数组
-              data.forEach((ele) => {
+              data.forEach(ele => {
                 // console.log(ele);
                 ele.attr_vals =
                   ele.attr_vals.length == 0 ? [] : ele.attr_vals.split(" ");
@@ -244,7 +244,7 @@ export default {
             }
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -260,9 +260,9 @@ export default {
     handleAddParams() {
       httpPost(`categories/${this.cateId}/attributes`, {
         attr_name: this.AddParams.Model.attr_name,
-        attr_sel: this.tabs.activeKey,
+        attr_sel: this.tabs.activeKey
       })
-        .then((resonse) => {
+        .then(resonse => {
           // console.log(resonse);
           let { meta } = resonse;
           if (meta.status == 201) {
@@ -272,7 +272,7 @@ export default {
             this.$refs.AddParamsRef.resetFields();
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -285,12 +285,12 @@ export default {
         // 属性的类型
         attr_sel: r.attr_sel,
         // 参数的属性值
-        attr_vals: r.attr_vals.join(" "),
+        attr_vals: r.attr_vals.join(" ")
       })
-        .then((response) => {
+        .then(response => {
           console.log(response);
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -304,7 +304,7 @@ export default {
     handleInputConfirm(record) {
       record.attr_vals.push(record.inputValue);
       console.log(record);
-    },
+    }
   },
   computed: {
     // 控制  添加参数 按钮 禁用与否
@@ -323,13 +323,13 @@ export default {
       } else {
         return "静态属性";
       }
-    },
+    }
   },
   components: {
     EditOutlined,
     DeleteOutlined,
-    PlusOutlined,
-  },
+    PlusOutlined
+  }
 };
 </script>
 

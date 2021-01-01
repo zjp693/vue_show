@@ -22,7 +22,7 @@
       <a-table
         :columns="goodsColumns"
         :data-source="goodsData"
-        :row-key="(record) => record.cat_id"
+        :row-key="record => record.cat_id"
         bordered
         :pagination="false"
         :expandIconColumnIndex="1"
@@ -72,7 +72,7 @@ import {
   CheckCircleTwoTone,
   EditOutlined,
   DeleteOutlined,
-  CloseCircleOutlined,
+  CloseCircleOutlined
 } from "@ant-design/icons-vue";
 
 export default {
@@ -84,26 +84,26 @@ export default {
         {
           title: "是否有效",
           slots: { customRender: "isDeleted" },
-          key: "cat_deleted",
+          key: "cat_deleted"
         },
         {
           title: "排序",
           slots: { customRender: "isLevel" },
-          key: "cat_level",
+          key: "cat_level"
         },
 
         {
           title: "操作",
           slots: { customRender: "operation" },
-          key: "operation",
-        },
+          key: "operation"
+        }
       ],
       goodsData: [],
       pagination: {
         pagenum: 1,
         pagesize: 5,
-        total: 0,
-      },
+        total: 0
+      }
     };
   },
   created() {
@@ -115,9 +115,9 @@ export default {
       httpGet(goods.GetCategories, {
         type: [1, 2, 3],
         pagenum: this.pagination.pagenum,
-        pagesize: this.pagination.pagesize,
+        pagesize: this.pagination.pagesize
       })
-        .then((res) => {
+        .then(res => {
           console.log(res);
           let { data, meta } = res;
           if (meta.status == 200) {
@@ -126,19 +126,18 @@ export default {
             this.pagination.total = data.total;
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
-    },
+    }
   },
   components: {
     EditOutlined,
     DeleteOutlined,
     CheckCircleTwoTone,
-    CloseCircleOutlined,
-  },
+    CloseCircleOutlined
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>

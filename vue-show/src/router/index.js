@@ -68,7 +68,7 @@ const routes = [
         name: "Params",
         path: "/params",
         component: () => import("../components/Params")
-      },
+      }
     ]
   }
 ];

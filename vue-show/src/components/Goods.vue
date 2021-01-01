@@ -30,7 +30,7 @@
       <a-table
         :columns="goodsColumns"
         :data-source="goodsData"
-        :row-key="(record) => record.goods_id"
+        :row-key="record => record.goods_id"
         bordered
         :pagination="false"
       >
@@ -54,7 +54,7 @@
         v-model:current="pagination.pagenum"
         v-model:pagesize="pagination.pagesize"
         :total="pagination.total"
-        :show-total="(total) => `共 ${pagination.total} 条`"
+        :show-total="total => `共 ${pagination.total} 条`"
         show-size-changer
         show-quick-jumper
         :page-size-options="pagination.pageSizeOptions"
@@ -84,7 +84,7 @@ export default {
         {
           title: "商品价格（元）",
           dataIndex: "goods_price",
-          key: "goods_price",
+          key: "goods_price"
         },
         { title: "商品重量", dataIndex: "goods_weight", key: "goods_weight" },
         { title: "创建时间", dataIndex: "add_time", key: "add_time" },
@@ -92,16 +92,16 @@ export default {
         {
           title: "操作",
           slots: { customRender: "operation" },
-          key: "operation",
-        },
+          key: "operation"
+        }
       ],
       goodsData: [],
       pagination: {
         pagenum: 1,
         pagesize: 10,
         pageSizeOptions: ["5", "10", "15", "20"],
-        total: 0,
-      },
+        total: 0
+      }
     };
   },
   created() {
@@ -112,9 +112,9 @@ export default {
     haneleGetGoods() {
       httpGet(goods.GetGoods, {
         pagenum: this.pagination.pagenum,
-        pagesize: this.pagination.pagesize,
+        pagesize: this.pagination.pagesize
       })
-        .then((res) => {
+        .then(res => {
           console.log(res);
           let { data, meta } = res;
           if (meta.status == 200) {
@@ -122,7 +122,7 @@ export default {
             this.pagination.total = data.total;
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -139,14 +139,13 @@ export default {
       this.pagination.pagesize = pagesize;
 
       this.haneleGetGoods();
-    },
+    }
   },
   components: {
     EditOutlined,
-    DeleteOutlined,
-  },
+    DeleteOutlined
+  }
 };
 </script>
 
-<style>
-</style>
+<style></style>

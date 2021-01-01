@@ -71,7 +71,7 @@
                 :fieldNames="{
                   label: 'cat_name',
                   value: 'cat_id',
-                  children: 'children',
+                  children: 'children'
                 }"
                 @change="handleCascaderChange"
                 placeholder="请选择"
@@ -161,30 +161,30 @@ export default {
         goods_cat: [],
         goods_introduce: "",
         pics: [],
-        attrs: [],
+        attrs: []
       },
       // 数据校验规则
       addGoodsRules: {
         goods_name: [
-          { required: true, message: "商品名称不能为空", trigger: "blur" },
+          { required: true, message: "商品名称不能为空", trigger: "blur" }
         ],
         goods_price: [
-          { required: true, message: "商品价格不能为空", trigger: "blur" },
+          { required: true, message: "商品价格不能为空", trigger: "blur" }
         ],
         goods_weight: [
-          { required: true, message: "商品重量不能为空", trigger: "blur" },
+          { required: true, message: "商品重量不能为空", trigger: "blur" }
         ],
         goods_number: [
-          { required: true, message: "商品数量不能为空", trigger: "blur" },
+          { required: true, message: "商品数量不能为空", trigger: "blur" }
         ],
         goods_cat: [
           {
             type: "array",
             required: true,
             message: "商品分类不能为空",
-            trigger: "blur",
-          },
-        ],
+            trigger: "blur"
+          }
+        ]
       },
       options: [],
       activeKey: "0",
@@ -194,7 +194,7 @@ export default {
       headerObj: { Authorization: window.sessionStorage.getItem("token") },
       prewviewPath: "",
       previewVisible: false,
-      editor: ClassicEditor,
+      editor: ClassicEditor
     };
   },
   created() {
@@ -203,14 +203,14 @@ export default {
   methods: {
     handleReadCates() {
       httpGet(goods.GetCategories)
-        .then((response) => {
+        .then(response => {
           // console.log(response);
           let { meta, data } = response;
           if (meta.status == 200) {
             this.options = data;
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.log(err);
         });
     },
@@ -225,32 +225,32 @@ export default {
         if (activeKey == "1") {
           // console.log("商品参数");
           httpGet(`categories/${this.cate_id}/attributes`, { sel: "many" })
-            .then((response) => {
+            .then(response => {
               console.log(response);
               let { data, meta } = response;
               if (meta.status == 200) {
-                data.forEach((ele) => {
+                data.forEach(ele => {
                   ele.attr_vals =
                     ele.attr_vals.length == 0 ? [] : ele.attr_vals.split(" ");
                 });
                 this.manyData = data;
               }
             })
-            .catch((error) => {
+            .catch(error => {
               console.log(error);
             });
         }
         // 商品属性
         if (activeKey == "2") {
           httpGet(`categories/${this.cate_id}/attributes`, { sel: "only" })
-            .then((response) => {
+            .then(response => {
               console.log(response);
               let { data, meta } = response;
               if (meta.status == 200) {
                 this.onlyData = data;
               }
             })
-            .catch((error) => {
+            .catch(error => {
               console.log(error);
             });
         }
@@ -267,7 +267,7 @@ export default {
       if (file.file.status == "done") {
         let { fileList } = file;
         let arr = [];
-        fileList.forEach((item) => {
+        fileList.forEach(item => {
           arr.push({ pic: item.response.data.tmp_path });
         });
         this.addGoodsModel.pics = arr;
@@ -293,7 +293,7 @@ export default {
     handleUploadRemove(file) {
       // 在pics中查找和即将删除的路径一样的图片的索引
       let index = this.addGoodsModel.pics.findIndex(
-        (item) => item.pic == file.response.data.tmp_path
+        item => item.pic == file.response.data.tmp_path
       );
       console.log(index);
       // 通过索引把图片的临时路径从数组中删除
@@ -316,23 +316,23 @@ export default {
           form.goods_cat = form.goods_cat.join(",");
           console.log(form);
           // 3.收集动态参数(manyData);
-          this.manyData.forEach((item) => {
+          this.manyData.forEach(item => {
             form.attrs.push({
               attr_id: item.attr_id,
-              attr_value: item.attr_vals.join(" "),
+              attr_value: item.attr_vals.join(" ")
             });
           });
           // 4.收集静态参数
-          this.onlyData.forEach((item) => {
+          this.onlyData.forEach(item => {
             form.attrs.push({
               attr_id: item.attr_id,
-              attr_value: item.attr_vals,
+              attr_value: item.attr_vals
             });
           });
           // 5.发请求
           // console.log(form)
           httpPost(goods.AddGoods, form)
-            .then((response) => {
+            .then(response => {
               console.log(response);
               let { meta } = response;
               if (meta.status == 201) {
@@ -340,19 +340,19 @@ export default {
                 this.$router.push("/goods");
               }
             })
-            .catch((err) => {
+            .catch(err => {
               console.log(err);
             });
         })
-        .catch((err) => {
+        .catch(err => {
           message.error("您还有未填完的项");
           console.log(err);
         });
-    },
+    }
   },
   components: {
-    UploadOutlined,
-  },
+    UploadOutlined
+  }
 };
 </script>
 
