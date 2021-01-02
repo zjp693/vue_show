@@ -1,5 +1,7 @@
-export default [{
-    children: [{
+export default [
+  {
+    children: [
+      {
         value: "东城区",
         label: "东城区"
       },
@@ -68,7 +70,8 @@ export default [{
     label: "北京市"
   },
   {
-    children: [{
+    children: [
+      {
         value: "和平区",
         label: "和平区"
       },
@@ -137,8 +140,10 @@ export default [{
     label: "天津市"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "长安区",
             label: "长安区"
           },
@@ -227,7 +232,8 @@ export default [{
         label: "石家庄市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "路南区",
             label: "路南区"
           },
@@ -288,7 +294,8 @@ export default [{
         label: "唐山市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "海港区",
             label: "海港区"
           },
@@ -321,7 +328,8 @@ export default [{
         label: "秦皇岛市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "邯山区",
             label: "邯山区"
           },
@@ -402,7 +410,8 @@ export default [{
         label: "邯郸市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "桥东区",
             label: "桥东区"
           },
@@ -483,7 +492,8 @@ export default [{
         label: "邢台市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "竞秀区",
             label: "竞秀区"
           },
@@ -580,7 +590,8 @@ export default [{
         label: "保定市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "桥东区",
             label: "桥东区"
           },
@@ -649,7 +660,8 @@ export default [{
         label: "张家口市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "双桥区",
             label: "双桥区"
           },
@@ -698,7 +710,8 @@ export default [{
         label: "承德市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "新华区",
             label: "新华区"
           },
@@ -767,7 +780,8 @@ export default [{
         label: "沧州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "安次区",
             label: "安次区"
           },
@@ -812,7 +826,8 @@ export default [{
         label: "廊坊市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "桃城区",
             label: "桃城区"
           },
@@ -873,8 +888,10 @@ export default [{
     label: "河北省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "小店区",
             label: "小店区"
           },
@@ -919,7 +936,8 @@ export default [{
         label: "太原市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "城区",
             label: "城区"
           },
@@ -968,7 +986,8 @@ export default [{
         label: "大同市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "城区",
             label: "城区"
           },
@@ -993,7 +1012,8 @@ export default [{
         label: "阳泉市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "城区",
             label: "城区"
           },
@@ -1050,7 +1070,8 @@ export default [{
         label: "长治市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "城区",
             label: "城区"
           },
@@ -1079,7 +1100,8 @@ export default [{
         label: "晋城市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "朔城区",
             label: "朔城区"
           },
@@ -1108,7 +1130,8 @@ export default [{
         label: "朔州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "榆次区",
             label: "榆次区"
           },
@@ -1157,7 +1180,8 @@ export default [{
         label: "晋中市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "盐湖区",
             label: "盐湖区"
           },
@@ -1214,7 +1238,8 @@ export default [{
         label: "运城市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "忻府区",
             label: "忻府区"
           },
@@ -1275,7 +1300,8 @@ export default [{
         label: "忻州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "尧都区",
             label: "尧都区"
           },
@@ -1348,7 +1374,8 @@ export default [{
         label: "临汾市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "离石区",
             label: "离石区"
           },
@@ -1409,8 +1436,10 @@ export default [{
     label: "山西省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "新城区",
             label: "新城区"
           },
@@ -1451,7 +1480,8 @@ export default [{
         label: "呼和浩特市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "东河区",
             label: "东河区"
           },
@@ -1492,7 +1522,8 @@ export default [{
         label: "包头市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "海勃湾区",
             label: "海勃湾区"
           },
@@ -1509,7 +1540,8 @@ export default [{
         label: "乌海市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "红山区",
             label: "红山区"
           },
@@ -1562,7 +1594,8 @@ export default [{
         label: "赤峰市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "科尔沁区",
             label: "科尔沁区"
           },
@@ -1599,7 +1632,8 @@ export default [{
         label: "通辽市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "东胜区",
             label: "东胜区"
           },
@@ -1640,7 +1674,8 @@ export default [{
         label: "鄂尔多斯市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "海拉尔区",
             label: "海拉尔区"
           },
@@ -1701,7 +1736,8 @@ export default [{
         label: "呼伦贝尔市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "临河区",
             label: "临河区"
           },
@@ -1734,7 +1770,8 @@ export default [{
         label: "巴彦淖尔市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "集宁区",
             label: "集宁区"
           },
@@ -1783,7 +1820,8 @@ export default [{
         label: "乌兰察布市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "乌兰浩特市",
             label: "乌兰浩特市"
           },
@@ -1812,7 +1850,8 @@ export default [{
         label: "兴安盟"
       },
       {
-        children: [{
+        children: [
+          {
             value: "二连浩特市",
             label: "二连浩特市"
           },
@@ -1865,7 +1904,8 @@ export default [{
         label: "锡林郭勒盟"
       },
       {
-        children: [{
+        children: [
+          {
             value: "阿拉善左旗",
             label: "阿拉善左旗"
           },
@@ -1886,8 +1926,10 @@ export default [{
     label: "内蒙古自治区"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "和平区",
             label: "和平区"
           },
@@ -1944,7 +1986,8 @@ export default [{
         label: "沈阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "中山区",
             label: "中山区"
           },
@@ -1989,7 +2032,8 @@ export default [{
         label: "大连市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "铁东区",
             label: "铁东区"
           },
@@ -2022,7 +2066,8 @@ export default [{
         label: "鞍山市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "新抚区",
             label: "新抚区"
           },
@@ -2055,7 +2100,8 @@ export default [{
         label: "抚顺市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "平山区",
             label: "平山区"
           },
@@ -2084,7 +2130,8 @@ export default [{
         label: "本溪市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "元宝区",
             label: "元宝区"
           },
@@ -2113,7 +2160,8 @@ export default [{
         label: "丹东市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "古塔区",
             label: "古塔区"
           },
@@ -2146,7 +2194,8 @@ export default [{
         label: "锦州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "站前区",
             label: "站前区"
           },
@@ -2175,7 +2224,8 @@ export default [{
         label: "营口市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "海州区",
             label: "海州区"
           },
@@ -2208,7 +2258,8 @@ export default [{
         label: "阜新市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "白塔区",
             label: "白塔区"
           },
@@ -2241,7 +2292,8 @@ export default [{
         label: "辽阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "双台子区",
             label: "双台子区"
           },
@@ -2262,7 +2314,8 @@ export default [{
         label: "盘锦市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "银州区",
             label: "银州区"
           },
@@ -2295,7 +2348,8 @@ export default [{
         label: "铁岭市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "双塔区",
             label: "双塔区"
           },
@@ -2328,7 +2382,8 @@ export default [{
         label: "朝阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "连山区",
             label: "连山区"
           },
@@ -2361,8 +2416,10 @@ export default [{
     label: "辽宁省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "南关区",
             label: "南关区"
           },
@@ -2407,7 +2464,8 @@ export default [{
         label: "长春市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "昌邑区",
             label: "昌邑区"
           },
@@ -2448,7 +2506,8 @@ export default [{
         label: "吉林市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "铁西区",
             label: "铁西区"
           },
@@ -2477,7 +2536,8 @@ export default [{
         label: "四平市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "龙山区",
             label: "龙山区"
           },
@@ -2498,7 +2558,8 @@ export default [{
         label: "辽源市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "东昌区",
             label: "东昌区"
           },
@@ -2531,7 +2592,8 @@ export default [{
         label: "通化市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "浑江区",
             label: "浑江区"
           },
@@ -2560,7 +2622,8 @@ export default [{
         label: "白山市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "宁江区",
             label: "宁江区"
           },
@@ -2585,7 +2648,8 @@ export default [{
         label: "松原市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "洮北区",
             label: "洮北区"
           },
@@ -2610,7 +2674,8 @@ export default [{
         label: "白城市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "延吉市",
             label: "延吉市"
           },
@@ -2651,8 +2716,10 @@ export default [{
     label: "吉林省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "道里区",
             label: "道里区"
           },
@@ -2729,7 +2796,8 @@ export default [{
         label: "哈尔滨市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "龙沙区",
             label: "龙沙区"
           },
@@ -2798,7 +2866,8 @@ export default [{
         label: "齐齐哈尔市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "鸡冠区",
             label: "鸡冠区"
           },
@@ -2839,7 +2908,8 @@ export default [{
         label: "鸡西市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "向阳区",
             label: "向阳区"
           },
@@ -2876,7 +2946,8 @@ export default [{
         label: "鹤岗市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "尖山区",
             label: "尖山区"
           },
@@ -2913,7 +2984,8 @@ export default [{
         label: "双鸭山市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "萨尔图区",
             label: "萨尔图区"
           },
@@ -2954,7 +3026,8 @@ export default [{
         label: "大庆市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "伊春区",
             label: "伊春区"
           },
@@ -3027,7 +3100,8 @@ export default [{
         label: "伊春市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "向阳区",
             label: "向阳区"
           },
@@ -3072,7 +3146,8 @@ export default [{
         label: "佳木斯市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "新兴区",
             label: "新兴区"
           },
@@ -3093,7 +3168,8 @@ export default [{
         label: "七台河市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "东安区",
             label: "东安区"
           },
@@ -3138,7 +3214,8 @@ export default [{
         label: "牡丹江市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "爱辉区",
             label: "爱辉区"
           },
@@ -3167,7 +3244,8 @@ export default [{
         label: "黑河市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "北林区",
             label: "北林区"
           },
@@ -3212,7 +3290,8 @@ export default [{
         label: "绥化市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "呼玛县",
             label: "呼玛县"
           },
@@ -3233,7 +3312,8 @@ export default [{
     label: "黑龙江省"
   },
   {
-    children: [{
+    children: [
+      {
         value: "黄浦区",
         label: "黄浦区"
       },
@@ -3302,8 +3382,10 @@ export default [{
     label: "上海市"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "玄武区",
             label: "玄武区"
           },
@@ -3352,7 +3434,8 @@ export default [{
         label: "南京市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "锡山区",
             label: "锡山区"
           },
@@ -3385,7 +3468,8 @@ export default [{
         label: "无锡市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "鼓楼区",
             label: "鼓楼区"
           },
@@ -3430,7 +3514,8 @@ export default [{
         label: "徐州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "天宁区",
             label: "天宁区"
           },
@@ -3459,7 +3544,8 @@ export default [{
         label: "常州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "虎丘区",
             label: "虎丘区"
           },
@@ -3500,7 +3586,8 @@ export default [{
         label: "苏州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "崇川区",
             label: "崇川区"
           },
@@ -3537,7 +3624,8 @@ export default [{
         label: "南通市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "连云区",
             label: "连云区"
           },
@@ -3566,7 +3654,8 @@ export default [{
         label: "连云港市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "淮安区",
             label: "淮安区"
           },
@@ -3599,7 +3688,8 @@ export default [{
         label: "淮安市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "亭湖区",
             label: "亭湖区"
           },
@@ -3640,7 +3730,8 @@ export default [{
         label: "盐城市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "广陵区",
             label: "广陵区"
           },
@@ -3669,7 +3760,8 @@ export default [{
         label: "扬州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "京口区",
             label: "京口区"
           },
@@ -3698,7 +3790,8 @@ export default [{
         label: "镇江市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "海陵区",
             label: "海陵区"
           },
@@ -3727,7 +3820,8 @@ export default [{
         label: "泰州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "宿城区",
             label: "宿城区"
           },
@@ -3756,8 +3850,10 @@ export default [{
     label: "江苏省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "上城区",
             label: "上城区"
           },
@@ -3814,7 +3910,8 @@ export default [{
         label: "杭州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "海曙区",
             label: "海曙区"
           },
@@ -3863,7 +3960,8 @@ export default [{
         label: "宁波市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "鹿城区",
             label: "鹿城区"
           },
@@ -3912,7 +4010,8 @@ export default [{
         label: "温州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "南湖区",
             label: "南湖区"
           },
@@ -3945,7 +4044,8 @@ export default [{
         label: "嘉兴市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "吴兴区",
             label: "吴兴区"
           },
@@ -3970,7 +4070,8 @@ export default [{
         label: "湖州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "越城区",
             label: "越城区"
           },
@@ -3999,7 +4100,8 @@ export default [{
         label: "绍兴市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "婺城区",
             label: "婺城区"
           },
@@ -4040,7 +4142,8 @@ export default [{
         label: "金华市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "柯城区",
             label: "柯城区"
           },
@@ -4069,7 +4172,8 @@ export default [{
         label: "衢州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "定海区",
             label: "定海区"
           },
@@ -4090,7 +4194,8 @@ export default [{
         label: "舟山市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "椒江区",
             label: "椒江区"
           },
@@ -4131,7 +4236,8 @@ export default [{
         label: "台州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "莲都区",
             label: "莲都区"
           },
@@ -4176,8 +4282,10 @@ export default [{
     label: "浙江省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "瑶海区",
             label: "瑶海区"
           },
@@ -4218,7 +4326,8 @@ export default [{
         label: "合肥市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "镜湖区",
             label: "镜湖区"
           },
@@ -4255,7 +4364,8 @@ export default [{
         label: "芜湖市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "龙子湖区",
             label: "龙子湖区"
           },
@@ -4288,7 +4398,8 @@ export default [{
         label: "蚌埠市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "大通区",
             label: "大通区"
           },
@@ -4321,7 +4432,8 @@ export default [{
         label: "淮南市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "花山区",
             label: "花山区"
           },
@@ -4350,7 +4462,8 @@ export default [{
         label: "马鞍山市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "杜集区",
             label: "杜集区"
           },
@@ -4371,7 +4484,8 @@ export default [{
         label: "淮北市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "铜官区",
             label: "铜官区"
           },
@@ -4392,7 +4506,8 @@ export default [{
         label: "铜陵市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "迎江区",
             label: "迎江区"
           },
@@ -4437,7 +4552,8 @@ export default [{
         label: "安庆市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "屯溪区",
             label: "屯溪区"
           },
@@ -4470,7 +4586,8 @@ export default [{
         label: "黄山市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "琅琊区",
             label: "琅琊区"
           },
@@ -4507,7 +4624,8 @@ export default [{
         label: "滁州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "颍州区",
             label: "颍州区"
           },
@@ -4544,7 +4662,8 @@ export default [{
         label: "阜阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "埇桥区",
             label: "埇桥区"
           },
@@ -4569,7 +4688,8 @@ export default [{
         label: "宿州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "金安区",
             label: "金安区"
           },
@@ -4602,7 +4722,8 @@ export default [{
         label: "六安市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "谯城区",
             label: "谯城区"
           },
@@ -4623,7 +4744,8 @@ export default [{
         label: "亳州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "贵池区",
             label: "贵池区"
           },
@@ -4644,7 +4766,8 @@ export default [{
         label: "池州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "宣州区",
             label: "宣州区"
           },
@@ -4681,8 +4804,10 @@ export default [{
     label: "安徽省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "鼓楼区",
             label: "鼓楼区"
           },
@@ -4739,7 +4864,8 @@ export default [{
         label: "福州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "思明区",
             label: "思明区"
           },
@@ -4768,7 +4894,8 @@ export default [{
         label: "厦门市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "城厢区",
             label: "城厢区"
           },
@@ -4793,7 +4920,8 @@ export default [{
         label: "莆田市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "梅列区",
             label: "梅列区"
           },
@@ -4846,7 +4974,8 @@ export default [{
         label: "三明市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "鲤城区",
             label: "鲤城区"
           },
@@ -4899,7 +5028,8 @@ export default [{
         label: "泉州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "芗城区",
             label: "芗城区"
           },
@@ -4948,7 +5078,8 @@ export default [{
         label: "漳州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "延平区",
             label: "延平区"
           },
@@ -4993,7 +5124,8 @@ export default [{
         label: "南平市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "新罗区",
             label: "新罗区"
           },
@@ -5026,7 +5158,8 @@ export default [{
         label: "龙岩市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "蕉城区",
             label: "蕉城区"
           },
@@ -5071,8 +5204,10 @@ export default [{
     label: "福建省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "东湖区",
             label: "东湖区"
           },
@@ -5113,7 +5248,8 @@ export default [{
         label: "南昌市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "昌江区",
             label: "昌江区"
           },
@@ -5134,7 +5270,8 @@ export default [{
         label: "景德镇市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "安源区",
             label: "安源区"
           },
@@ -5159,7 +5296,8 @@ export default [{
         label: "萍乡市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "濂溪区",
             label: "濂溪区"
           },
@@ -5216,7 +5354,8 @@ export default [{
         label: "九江市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "渝水区",
             label: "渝水区"
           },
@@ -5229,7 +5368,8 @@ export default [{
         label: "新余市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "月湖区",
             label: "月湖区"
           },
@@ -5246,7 +5386,8 @@ export default [{
         label: "鹰潭市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "章贡区",
             label: "章贡区"
           },
@@ -5323,7 +5464,8 @@ export default [{
         label: "赣州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "吉州区",
             label: "吉州区"
           },
@@ -5380,7 +5522,8 @@ export default [{
         label: "吉安市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "袁州区",
             label: "袁州区"
           },
@@ -5425,7 +5568,8 @@ export default [{
         label: "宜春市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "临川区",
             label: "临川区"
           },
@@ -5474,7 +5618,8 @@ export default [{
         label: "抚州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "信州区",
             label: "信州区"
           },
@@ -5531,8 +5676,10 @@ export default [{
     label: "江西省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "历下区",
             label: "历下区"
           },
@@ -5577,7 +5724,8 @@ export default [{
         label: "济南市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "市南区",
             label: "市南区"
           },
@@ -5622,7 +5770,8 @@ export default [{
         label: "青岛市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "淄川区",
             label: "淄川区"
           },
@@ -5659,7 +5808,8 @@ export default [{
         label: "淄博市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "市中区",
             label: "市中区"
           },
@@ -5688,7 +5838,8 @@ export default [{
         label: "枣庄市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "东营区",
             label: "东营区"
           },
@@ -5713,7 +5864,8 @@ export default [{
         label: "东营市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "芝罘区",
             label: "芝罘区"
           },
@@ -5766,7 +5918,8 @@ export default [{
         label: "烟台市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "潍城区",
             label: "潍城区"
           },
@@ -5819,7 +5972,8 @@ export default [{
         label: "潍坊市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "任城区",
             label: "任城区"
           },
@@ -5868,7 +6022,8 @@ export default [{
         label: "济宁市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "泰山区",
             label: "泰山区"
           },
@@ -5897,7 +6052,8 @@ export default [{
         label: "泰安市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "环翠区",
             label: "环翠区"
           },
@@ -5918,7 +6074,8 @@ export default [{
         label: "威海市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "东港区",
             label: "东港区"
           },
@@ -5939,7 +6096,8 @@ export default [{
         label: "日照市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "莱城区",
             label: "莱城区"
           },
@@ -5952,7 +6110,8 @@ export default [{
         label: "莱芜市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "兰山区",
             label: "兰山区"
           },
@@ -6005,7 +6164,8 @@ export default [{
         label: "临沂市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "德城区",
             label: "德城区"
           },
@@ -6054,7 +6214,8 @@ export default [{
         label: "德州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "东昌府区",
             label: "东昌府区"
           },
@@ -6091,7 +6252,8 @@ export default [{
         label: "聊城市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "滨城区",
             label: "滨城区"
           },
@@ -6124,7 +6286,8 @@ export default [{
         label: "滨州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "牡丹区",
             label: "牡丹区"
           },
@@ -6169,8 +6332,10 @@ export default [{
     label: "山东省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "中原区",
             label: "中原区"
           },
@@ -6223,7 +6388,8 @@ export default [{
         label: "郑州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "龙亭区",
             label: "龙亭区"
           },
@@ -6268,7 +6434,8 @@ export default [{
         label: "开封市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "老城区",
             label: "老城区"
           },
@@ -6333,7 +6500,8 @@ export default [{
         label: "洛阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "新华区",
             label: "新华区"
           },
@@ -6378,7 +6546,8 @@ export default [{
         label: "平顶山市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "文峰区",
             label: "文峰区"
           },
@@ -6419,7 +6588,8 @@ export default [{
         label: "安阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "鹤山区",
             label: "鹤山区"
           },
@@ -6444,7 +6614,8 @@ export default [{
         label: "鹤壁市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "红旗区",
             label: "红旗区"
           },
@@ -6497,7 +6668,8 @@ export default [{
         label: "新乡市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "解放区",
             label: "解放区"
           },
@@ -6542,7 +6714,8 @@ export default [{
         label: "焦作市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "华龙区",
             label: "华龙区"
           },
@@ -6571,7 +6744,8 @@ export default [{
         label: "濮阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "魏都区",
             label: "魏都区"
           },
@@ -6600,7 +6774,8 @@ export default [{
         label: "许昌市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "源汇区",
             label: "源汇区"
           },
@@ -6625,7 +6800,8 @@ export default [{
         label: "漯河市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "湖滨区",
             label: "湖滨区"
           },
@@ -6654,7 +6830,8 @@ export default [{
         label: "三门峡市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "宛城区",
             label: "宛城区"
           },
@@ -6711,7 +6888,8 @@ export default [{
         label: "南阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "梁园区",
             label: "梁园区"
           },
@@ -6752,7 +6930,8 @@ export default [{
         label: "商丘市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "浉河区",
             label: "浉河区"
           },
@@ -6797,7 +6976,8 @@ export default [{
         label: "信阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "川汇区",
             label: "川汇区"
           },
@@ -6842,7 +7022,8 @@ export default [{
         label: "周口市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "驿城区",
             label: "驿城区"
           },
@@ -6895,8 +7076,10 @@ export default [{
     label: "河南省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "江岸区",
             label: "江岸区"
           },
@@ -6953,7 +7136,8 @@ export default [{
         label: "武汉市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "黄石港区",
             label: "黄石港区"
           },
@@ -6982,7 +7166,8 @@ export default [{
         label: "黄石市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "茅箭区",
             label: "茅箭区"
           },
@@ -7019,7 +7204,8 @@ export default [{
         label: "十堰市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "西陵区",
             label: "西陵区"
           },
@@ -7076,7 +7262,8 @@ export default [{
         label: "宜昌市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "襄城区",
             label: "襄城区"
           },
@@ -7117,7 +7304,8 @@ export default [{
         label: "襄阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "梁子湖区",
             label: "梁子湖区"
           },
@@ -7134,7 +7322,8 @@ export default [{
         label: "鄂州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "东宝区",
             label: "东宝区"
           },
@@ -7159,7 +7348,8 @@ export default [{
         label: "荆门市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "孝南区",
             label: "孝南区"
           },
@@ -7192,7 +7382,8 @@ export default [{
         label: "孝感市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "沙市区",
             label: "沙市区"
           },
@@ -7229,7 +7420,8 @@ export default [{
         label: "荆州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "黄州区",
             label: "黄州区"
           },
@@ -7274,7 +7466,8 @@ export default [{
         label: "黄冈市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "咸安区",
             label: "咸安区"
           },
@@ -7303,7 +7496,8 @@ export default [{
         label: "咸宁市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "曾都区",
             label: "曾都区"
           },
@@ -7320,7 +7514,8 @@ export default [{
         label: "随州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "恩施市",
             label: "恩施市"
           },
@@ -7377,8 +7572,10 @@ export default [{
     label: "湖北省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "芙蓉区",
             label: "芙蓉区"
           },
@@ -7419,7 +7616,8 @@ export default [{
         label: "长沙市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "荷塘区",
             label: "荷塘区"
           },
@@ -7460,7 +7658,8 @@ export default [{
         label: "株洲市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "雨湖区",
             label: "雨湖区"
           },
@@ -7485,7 +7684,8 @@ export default [{
         label: "湘潭市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "珠晖区",
             label: "珠晖区"
           },
@@ -7538,7 +7738,8 @@ export default [{
         label: "衡阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "双清区",
             label: "双清区"
           },
@@ -7591,7 +7792,8 @@ export default [{
         label: "邵阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "岳阳楼区",
             label: "岳阳楼区"
           },
@@ -7632,7 +7834,8 @@ export default [{
         label: "岳阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "武陵区",
             label: "武陵区"
           },
@@ -7673,7 +7876,8 @@ export default [{
         label: "常德市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "永定区",
             label: "永定区"
           },
@@ -7694,7 +7898,8 @@ export default [{
         label: "张家界市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "资阳区",
             label: "资阳区"
           },
@@ -7723,7 +7928,8 @@ export default [{
         label: "益阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "北湖区",
             label: "北湖区"
           },
@@ -7772,7 +7978,8 @@ export default [{
         label: "郴州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "零陵区",
             label: "零陵区"
           },
@@ -7821,7 +8028,8 @@ export default [{
         label: "永州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "鹤城区",
             label: "鹤城区"
           },
@@ -7874,7 +8082,8 @@ export default [{
         label: "怀化市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "娄星区",
             label: "娄星区"
           },
@@ -7899,7 +8108,8 @@ export default [{
         label: "娄底市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "吉首市",
             label: "吉首市"
           },
@@ -7940,8 +8150,10 @@ export default [{
     label: "湖南省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "荔湾区",
             label: "荔湾区"
           },
@@ -7990,7 +8202,8 @@ export default [{
         label: "广州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "武江区",
             label: "武江区"
           },
@@ -8035,7 +8248,8 @@ export default [{
         label: "韶关市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "罗湖区",
             label: "罗湖区"
           },
@@ -8064,7 +8278,8 @@ export default [{
         label: "深圳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "香洲区",
             label: "香洲区"
           },
@@ -8081,7 +8296,8 @@ export default [{
         label: "珠海市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "龙湖区",
             label: "龙湖区"
           },
@@ -8114,7 +8330,8 @@ export default [{
         label: "汕头市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "禅城区",
             label: "禅城区"
           },
@@ -8139,7 +8356,8 @@ export default [{
         label: "佛山市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "蓬江区",
             label: "蓬江区"
           },
@@ -8172,7 +8390,8 @@ export default [{
         label: "江门市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "赤坎区",
             label: "赤坎区"
           },
@@ -8213,7 +8432,8 @@ export default [{
         label: "湛江市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "茂南区",
             label: "茂南区"
           },
@@ -8238,7 +8458,8 @@ export default [{
         label: "茂名市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "端州区",
             label: "端州区"
           },
@@ -8275,7 +8496,8 @@ export default [{
         label: "肇庆市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "惠城区",
             label: "惠城区"
           },
@@ -8300,7 +8522,8 @@ export default [{
         label: "惠州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "梅江区",
             label: "梅江区"
           },
@@ -8337,7 +8560,8 @@ export default [{
         label: "梅州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "城区",
             label: "城区"
           },
@@ -8358,7 +8582,8 @@ export default [{
         label: "汕尾市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "源城区",
             label: "源城区"
           },
@@ -8387,7 +8612,8 @@ export default [{
         label: "河源市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "江城区",
             label: "江城区"
           },
@@ -8408,7 +8634,8 @@ export default [{
         label: "阳江市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "清城区",
             label: "清城区"
           },
@@ -8453,7 +8680,8 @@ export default [{
         label: "中山市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "湘桥区",
             label: "湘桥区"
           },
@@ -8470,7 +8698,8 @@ export default [{
         label: "潮州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "榕城区",
             label: "榕城区"
           },
@@ -8495,7 +8724,8 @@ export default [{
         label: "揭阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "云城区",
             label: "云城区"
           },
@@ -8524,8 +8754,10 @@ export default [{
     label: "广东省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "兴宁区",
             label: "兴宁区"
           },
@@ -8578,7 +8810,8 @@ export default [{
         label: "南宁市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "城中区",
             label: "城中区"
           },
@@ -8623,7 +8856,8 @@ export default [{
         label: "柳州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "秀峰区",
             label: "秀峰区"
           },
@@ -8696,7 +8930,8 @@ export default [{
         label: "桂林市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "万秀区",
             label: "万秀区"
           },
@@ -8729,7 +8964,8 @@ export default [{
         label: "梧州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "海城区",
             label: "海城区"
           },
@@ -8750,7 +8986,8 @@ export default [{
         label: "北海市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "港口区",
             label: "港口区"
           },
@@ -8771,7 +9008,8 @@ export default [{
         label: "防城港市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "钦南区",
             label: "钦南区"
           },
@@ -8792,7 +9030,8 @@ export default [{
         label: "钦州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "港北区",
             label: "港北区"
           },
@@ -8817,7 +9056,8 @@ export default [{
         label: "贵港市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "玉州区",
             label: "玉州区"
           },
@@ -8850,7 +9090,8 @@ export default [{
         label: "玉林市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "右江区",
             label: "右江区"
           },
@@ -8903,7 +9144,8 @@ export default [{
         label: "百色市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "八步区",
             label: "八步区"
           },
@@ -8928,7 +9170,8 @@ export default [{
         label: "贺州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "金城江区",
             label: "金城江区"
           },
@@ -8977,7 +9220,8 @@ export default [{
         label: "河池市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "兴宾区",
             label: "兴宾区"
           },
@@ -9006,7 +9250,8 @@ export default [{
         label: "来宾市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "江州区",
             label: "江州区"
           },
@@ -9043,8 +9288,10 @@ export default [{
     label: "广西壮族自治区"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "秀英区",
             label: "秀英区"
           },
@@ -9065,7 +9312,8 @@ export default [{
         label: "海口市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "海棠区",
             label: "海棠区"
           },
@@ -9158,7 +9406,8 @@ export default [{
     label: "海南省"
   },
   {
-    children: [{
+    children: [
+      {
         value: "万州区",
         label: "万州区"
       },
@@ -9315,8 +9564,10 @@ export default [{
     label: "重庆市"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "锦江区",
             label: "锦江区"
           },
@@ -9401,7 +9652,8 @@ export default [{
         label: "成都市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "自流井区",
             label: "自流井区"
           },
@@ -9430,7 +9682,8 @@ export default [{
         label: "自贡市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "东区",
             label: "东区"
           },
@@ -9455,7 +9708,8 @@ export default [{
         label: "攀枝花市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "江阳区",
             label: "江阳区"
           },
@@ -9488,7 +9742,8 @@ export default [{
         label: "泸州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "旌阳区",
             label: "旌阳区"
           },
@@ -9517,7 +9772,8 @@ export default [{
         label: "德阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "涪城区",
             label: "涪城区"
           },
@@ -9558,7 +9814,8 @@ export default [{
         label: "绵阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "利州区",
             label: "利州区"
           },
@@ -9591,7 +9848,8 @@ export default [{
         label: "广元市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "船山区",
             label: "船山区"
           },
@@ -9616,7 +9874,8 @@ export default [{
         label: "遂宁市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "市中区",
             label: "市中区"
           },
@@ -9641,7 +9900,8 @@ export default [{
         label: "内江市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "市中区",
             label: "市中区"
           },
@@ -9690,7 +9950,8 @@ export default [{
         label: "乐山市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "顺庆区",
             label: "顺庆区"
           },
@@ -9731,7 +9992,8 @@ export default [{
         label: "南充市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "东坡区",
             label: "东坡区"
           },
@@ -9760,7 +10022,8 @@ export default [{
         label: "眉山市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "翠屏区",
             label: "翠屏区"
           },
@@ -9805,7 +10068,8 @@ export default [{
         label: "宜宾市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "广安区",
             label: "广安区"
           },
@@ -9834,7 +10098,8 @@ export default [{
         label: "广安市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "通川区",
             label: "通川区"
           },
@@ -9867,7 +10132,8 @@ export default [{
         label: "达州市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "雨城区",
             label: "雨城区"
           },
@@ -9904,7 +10170,8 @@ export default [{
         label: "雅安市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "巴州区",
             label: "巴州区"
           },
@@ -9929,7 +10196,8 @@ export default [{
         label: "巴中市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "雁江区",
             label: "雁江区"
           },
@@ -9946,7 +10214,8 @@ export default [{
         label: "资阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "马尔康市",
             label: "马尔康市"
           },
@@ -10003,7 +10272,8 @@ export default [{
         label: "阿坝藏族羌族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "康定市",
             label: "康定市"
           },
@@ -10080,7 +10350,8 @@ export default [{
         label: "甘孜藏族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "西昌市",
             label: "西昌市"
           },
@@ -10157,8 +10428,10 @@ export default [{
     label: "四川省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "南明区",
             label: "南明区"
           },
@@ -10203,7 +10476,8 @@ export default [{
         label: "贵阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "钟山区",
             label: "钟山区"
           },
@@ -10224,7 +10498,8 @@ export default [{
         label: "六盘水市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "红花岗区",
             label: "红花岗区"
           },
@@ -10285,7 +10560,8 @@ export default [{
         label: "遵义市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "西秀区",
             label: "西秀区"
           },
@@ -10314,7 +10590,8 @@ export default [{
         label: "安顺市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "七星关区",
             label: "七星关区"
           },
@@ -10351,7 +10628,8 @@ export default [{
         label: "毕节市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "碧江区",
             label: "碧江区"
           },
@@ -10396,7 +10674,8 @@ export default [{
         label: "铜仁市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "兴义市",
             label: "兴义市"
           },
@@ -10433,7 +10712,8 @@ export default [{
         label: "黔西南布依族苗族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "凯里市",
             label: "凯里市"
           },
@@ -10502,7 +10782,8 @@ export default [{
         label: "黔东南苗族侗族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "都匀市",
             label: "都匀市"
           },
@@ -10559,8 +10840,10 @@ export default [{
     label: "贵州省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "五华区",
             label: "五华区"
           },
@@ -10621,7 +10904,8 @@ export default [{
         label: "昆明市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "麒麟区",
             label: "麒麟区"
           },
@@ -10662,7 +10946,8 @@ export default [{
         label: "曲靖市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "红塔区",
             label: "红塔区"
           },
@@ -10703,7 +10988,8 @@ export default [{
         label: "玉溪市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "隆阳区",
             label: "隆阳区"
           },
@@ -10728,7 +11014,8 @@ export default [{
         label: "保山市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "昭阳区",
             label: "昭阳区"
           },
@@ -10777,7 +11064,8 @@ export default [{
         label: "昭通市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "古城区",
             label: "古城区"
           },
@@ -10802,7 +11090,8 @@ export default [{
         label: "丽江市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "思茅区",
             label: "思茅区"
           },
@@ -10847,7 +11136,8 @@ export default [{
         label: "普洱市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "临翔区",
             label: "临翔区"
           },
@@ -10884,7 +11174,8 @@ export default [{
         label: "临沧市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "楚雄市",
             label: "楚雄市"
           },
@@ -10929,7 +11220,8 @@ export default [{
         label: "楚雄彝族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "个旧市",
             label: "个旧市"
           },
@@ -10986,7 +11278,8 @@ export default [{
         label: "红河哈尼族彝族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "文山市",
             label: "文山市"
           },
@@ -11023,7 +11316,8 @@ export default [{
         label: "文山壮族苗族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "景洪市",
             label: "景洪市"
           },
@@ -11040,7 +11334,8 @@ export default [{
         label: "西双版纳傣族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "大理市",
             label: "大理市"
           },
@@ -11093,7 +11388,8 @@ export default [{
         label: "大理白族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "瑞丽市",
             label: "瑞丽市"
           },
@@ -11118,7 +11414,8 @@ export default [{
         label: "德宏傣族景颇族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "泸水市",
             label: "泸水市"
           },
@@ -11139,7 +11436,8 @@ export default [{
         label: "怒江傈僳族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "香格里拉市",
             label: "香格里拉市"
           },
@@ -11160,8 +11458,10 @@ export default [{
     label: "云南省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "城关区",
             label: "城关区"
           },
@@ -11198,7 +11498,8 @@ export default [{
         label: "拉萨市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "桑珠孜区",
             label: "桑珠孜区"
           },
@@ -11275,7 +11576,8 @@ export default [{
         label: "日喀则市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "卡若区",
             label: "卡若区"
           },
@@ -11324,7 +11626,8 @@ export default [{
         label: "昌都市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "巴宜区",
             label: "巴宜区"
           },
@@ -11357,7 +11660,8 @@ export default [{
         label: "林芝市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "乃东区",
             label: "乃东区"
           },
@@ -11410,7 +11714,8 @@ export default [{
         label: "山南市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "那曲县",
             label: "那曲县"
           },
@@ -11459,7 +11764,8 @@ export default [{
         label: "那曲地区"
       },
       {
-        children: [{
+        children: [
+          {
             value: "普兰县",
             label: "普兰县"
           },
@@ -11496,8 +11802,10 @@ export default [{
     label: "西藏自治区"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "新城区",
             label: "新城区"
           },
@@ -11554,7 +11862,8 @@ export default [{
         label: "西安市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "王益区",
             label: "王益区"
           },
@@ -11575,7 +11884,8 @@ export default [{
         label: "铜川市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "渭滨区",
             label: "渭滨区"
           },
@@ -11628,7 +11938,8 @@ export default [{
         label: "宝鸡市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "秦都区",
             label: "秦都区"
           },
@@ -11689,7 +12000,8 @@ export default [{
         label: "咸阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "临渭区",
             label: "临渭区"
           },
@@ -11738,7 +12050,8 @@ export default [{
         label: "渭南市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "宝塔区",
             label: "宝塔区"
           },
@@ -11795,7 +12108,8 @@ export default [{
         label: "延安市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "汉台区",
             label: "汉台区"
           },
@@ -11844,7 +12158,8 @@ export default [{
         label: "汉中市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "榆阳区",
             label: "榆阳区"
           },
@@ -11897,7 +12212,8 @@ export default [{
         label: "榆林市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "汉滨区",
             label: "汉滨区"
           },
@@ -11942,7 +12258,8 @@ export default [{
         label: "安康市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "商州区",
             label: "商州区"
           },
@@ -11979,8 +12296,10 @@ export default [{
     label: "陕西省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "城关区",
             label: "城关区"
           },
@@ -12021,7 +12340,8 @@ export default [{
         label: "嘉峪关市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "金川区",
             label: "金川区"
           },
@@ -12034,7 +12354,8 @@ export default [{
         label: "金昌市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "白银区",
             label: "白银区"
           },
@@ -12059,7 +12380,8 @@ export default [{
         label: "白银市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "秦州区",
             label: "秦州区"
           },
@@ -12092,7 +12414,8 @@ export default [{
         label: "天水市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "凉州区",
             label: "凉州区"
           },
@@ -12113,7 +12436,8 @@ export default [{
         label: "武威市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "甘州区",
             label: "甘州区"
           },
@@ -12142,7 +12466,8 @@ export default [{
         label: "张掖市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "崆峒区",
             label: "崆峒区"
           },
@@ -12175,7 +12500,8 @@ export default [{
         label: "平凉市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "肃州区",
             label: "肃州区"
           },
@@ -12208,7 +12534,8 @@ export default [{
         label: "酒泉市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "西峰区",
             label: "西峰区"
           },
@@ -12245,7 +12572,8 @@ export default [{
         label: "庆阳市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "安定区",
             label: "安定区"
           },
@@ -12278,7 +12606,8 @@ export default [{
         label: "定西市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "武都区",
             label: "武都区"
           },
@@ -12319,7 +12648,8 @@ export default [{
         label: "陇南市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "临夏市",
             label: "临夏市"
           },
@@ -12356,7 +12686,8 @@ export default [{
         label: "临夏回族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "合作市",
             label: "合作市"
           },
@@ -12397,8 +12728,10 @@ export default [{
     label: "甘肃省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "城东区",
             label: "城东区"
           },
@@ -12431,7 +12764,8 @@ export default [{
         label: "西宁市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "乐都区",
             label: "乐都区"
           },
@@ -12460,7 +12794,8 @@ export default [{
         label: "海东市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "门源回族自治县",
             label: "门源回族自治县"
           },
@@ -12481,7 +12816,8 @@ export default [{
         label: "海北藏族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "同仁县",
             label: "同仁县"
           },
@@ -12502,7 +12838,8 @@ export default [{
         label: "黄南藏族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "共和县",
             label: "共和县"
           },
@@ -12527,7 +12864,8 @@ export default [{
         label: "海南藏族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "玛沁县",
             label: "玛沁县"
           },
@@ -12556,7 +12894,8 @@ export default [{
         label: "果洛藏族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "玉树市",
             label: "玉树市"
           },
@@ -12585,7 +12924,8 @@ export default [{
         label: "玉树藏族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "格尔木市",
             label: "格尔木市"
           },
@@ -12614,8 +12954,10 @@ export default [{
     label: "青海省"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "兴庆区",
             label: "兴庆区"
           },
@@ -12644,7 +12986,8 @@ export default [{
         label: "银川市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "大武口区",
             label: "大武口区"
           },
@@ -12661,7 +13004,8 @@ export default [{
         label: "石嘴山市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "利通区",
             label: "利通区"
           },
@@ -12686,7 +13030,8 @@ export default [{
         label: "吴忠市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "原州区",
             label: "原州区"
           },
@@ -12711,7 +13056,8 @@ export default [{
         label: "固原市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "沙坡头区",
             label: "沙坡头区"
           },
@@ -12732,8 +13078,10 @@ export default [{
     label: "宁夏回族自治区"
   },
   {
-    children: [{
-        children: [{
+    children: [
+      {
+        children: [
+          {
             value: "天山区",
             label: "天山区"
           },
@@ -12770,7 +13118,8 @@ export default [{
         label: "乌鲁木齐市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "独山子区",
             label: "独山子区"
           },
@@ -12791,7 +13140,8 @@ export default [{
         label: "克拉玛依市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "高昌区",
             label: "高昌区"
           },
@@ -12808,7 +13158,8 @@ export default [{
         label: "吐鲁番市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "伊州区",
             label: "伊州区"
           },
@@ -12825,7 +13176,8 @@ export default [{
         label: "哈密市"
       },
       {
-        children: [{
+        children: [
+          {
             value: "昌吉市",
             label: "昌吉市"
           },
@@ -12858,7 +13210,8 @@ export default [{
         label: "昌吉回族自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "博乐市",
             label: "博乐市"
           },
@@ -12879,7 +13232,8 @@ export default [{
         label: "博尔塔拉蒙古自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "库尔勒市",
             label: "库尔勒市"
           },
@@ -12920,7 +13274,8 @@ export default [{
         label: "巴音郭楞蒙古自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "阿克苏市",
             label: "阿克苏市"
           },
@@ -12961,7 +13316,8 @@ export default [{
         label: "阿克苏地区"
       },
       {
-        children: [{
+        children: [
+          {
             value: "阿图什市",
             label: "阿图什市"
           },
@@ -12982,7 +13338,8 @@ export default [{
         label: "克孜勒苏柯尔克孜自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "喀什市",
             label: "喀什市"
           },
@@ -13035,7 +13392,8 @@ export default [{
         label: "喀什地区"
       },
       {
-        children: [{
+        children: [
+          {
             value: "和田市",
             label: "和田市"
           },
@@ -13072,7 +13430,8 @@ export default [{
         label: "和田地区"
       },
       {
-        children: [{
+        children: [
+          {
             value: "伊宁市",
             label: "伊宁市"
           },
@@ -13121,7 +13480,8 @@ export default [{
         label: "伊犁哈萨克自治州"
       },
       {
-        children: [{
+        children: [
+          {
             value: "塔城市",
             label: "塔城市"
           },
@@ -13154,7 +13514,8 @@ export default [{
         label: "塔城地区"
       },
       {
-        children: [{
+        children: [
+          {
             value: "阿勒泰市",
             label: "阿勒泰市"
           },
