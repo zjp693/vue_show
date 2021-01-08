@@ -1,10 +1,8 @@
-import {
-  createRouter,
-  createWebHashHistory
-} from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import Login from "../views/Login";
 
-const routes = [{
+const routes = [
+  {
     path: "/",
     redirect: "/login"
   },
@@ -18,7 +16,8 @@ const routes = [{
   {
     path: "/home",
     component: () => import("../views/Home"),
-    children: [{
+    children: [
+      {
         path: "/home",
         redirect: "/weclome"
       },
@@ -91,9 +90,10 @@ router.beforeEach((to, from, next) => {
   //获取token
   let isAuthenticated = window.sessionStorage.getItem("token");
   // 去的不是login且没有授权就强制跳转到login页面
-  if (to.name !== "Login" && !isAuthenticated) next({
-    name: "Login"
-  });
+  if (to.name !== "Login" && !isAuthenticated)
+    next({
+      name: "Login"
+    });
   else next();
 });
 export default router;
